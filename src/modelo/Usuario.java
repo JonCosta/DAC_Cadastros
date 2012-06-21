@@ -1,13 +1,31 @@
+package modelo;
 
 public class Usuario {
 	
 	private int idcliente, situacao ;
-	private String cpf, nome, nomepai, nomemae, tipodoc, numdoc, emissor, naturalidade, nacionalidade ;
+	private String cpf, nome, numTelefone, nomepai, nomemae, tipodoc, numdoc, emissor, naturalidade, nacionalidade ;
 	private String estadocivil, conjuge, capacidadecivil, numinss, formarecebinss, ocupacao, nivelcargo ;
 	private String empregador, nomeUsuario, senhaUsuario, tipoUsuario ;
 	private float rendamensal ;
 	private char sexo ;
+	private boolean isFuncionario ;
 	
+	public String getNumTelefone() {
+		return numTelefone;
+	}
+
+	public void setNumTelefone(String numTelefone) {
+		this.numTelefone = numTelefone;
+	}
+
+	public boolean isFuncionario() {
+		return isFuncionario;
+	}
+
+	public void setFuncionario(boolean isFuncionario) {
+		this.isFuncionario = isFuncionario;
+	}
+
 	public Usuario(){
 		
 	}
@@ -206,4 +224,4 @@ public class Usuario {
 	
 	
 	
-}
+}//Fecha classe
