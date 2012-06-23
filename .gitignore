@@ -3,3 +3,5 @@
 .settings/org.eclipse.jdt.core.prefs
 build/classes/modelo/Usuario.class
 build/classes/dao/UsuarioDAO.class
+.classpath
+.settings/org.eclipse.jdt.core.prefs
