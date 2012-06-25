@@ -11,7 +11,7 @@ public class ConnectionFactory {
 		//System.out.println("Conectando ao banco");
 		try{
 			Class.forName("org.gjt.mm.mysql.Driver"); 
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/sisteventos","root","") ;
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/dac_cadastros","root","") ;
 		}catch(SQLException e1){
 			throw new RuntimeException(e1) ;
 		}catch(Exception e){

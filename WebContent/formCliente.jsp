@@ -20,7 +20,7 @@
 <body>
 
 	<h2>Cadastro de Novo Cliente</h2>
-	<form action="">
+	<form action="cadastraCliente.jsp" method='post'>
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
@@ -52,7 +52,6 @@
 				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" >
 			</div>
 		
-			</div>
 			<div class="radio">
 				<fieldset>
 					<legend><span>Sexo</span></legend>

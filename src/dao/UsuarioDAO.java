@@ -4,6 +4,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.SQLException;
 import com.mysql.jdbc.exceptions.* ;
 
@@ -25,6 +26,41 @@ private Connection connection = null ;
 		
 	}//Fecha construtor	
 	
+	
+	public String listarClientes(){
+		
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil FROM usuario where isfuncionario = false" ;
+		
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        String tabela = "" ;
+        
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;
+            
+            while(rs.next()){
+            	tabela +=
+            		"<tr><th>"+rs.getObject(1)+"</th>"+
+            		"<th>"+rs.getObject(2)+"</th>" +
+            		"<th>"+rs.getObject(3)+"</th>" +
+            		"<th>"+rs.getObject(4)+"</th>" +
+            		"<th>"+rs.getObject(5)+"</th>" +
+            		"<th>"+rs.getObject(6)+"</th>" +
+            		"<th>"+rs.getObject(7)+"</th>" +
+            		"<th>"+rs.getObject(8)+"</th>"+
+            		"<th><input type='submit' value='Editar'/>" +
+            		"</th><th><input type='submit' value='Excluir'/>" +
+            		"</th></tr>";
+            }
+        }catch(SQLException e){
+        	
+        }
+        
+        return tabela ;
+        
+	}//Fecha Listar()
 	
 	public boolean verificarUsuario(Usuario u) throws SQLException{
 		
