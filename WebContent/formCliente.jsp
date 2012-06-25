@@ -23,7 +23,7 @@
 	<form action="">
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
-			<legend>Dados Pessoais</legend>
+			<legend>Dados pessoais</legend>
 			<div>
 				<label for="firstname">Primeiro Nome</label> <input type="text" id="firstname" name="primeironome" >
 			</div>
@@ -155,9 +155,6 @@
 			</div>
 			<div>	
 				<label for="naturalidade">Naturalidade</label><input type="text" name="naturalidade"/>
-			</div>
-			<div>	
-				<label for="inss">INSS</label><input type="text" name="inss"/>
 			</div>	
 			<div>	
 				<label for="capciv">Capacidade Civil</label>
@@ -181,7 +178,7 @@
 				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30"/>
 			</div>
 			<div>
-				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="30"/>
+				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7"/>
 			</div>
 				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30"/>
 			<div>

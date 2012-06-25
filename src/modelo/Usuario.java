@@ -4,7 +4,7 @@ public class Usuario {
 	
 	private int idcliente, situacao ;
 	private String cpf, nome, numTelefone, nomepai, nomemae, tipodoc, numdoc, emissor, naturalidade, nacionalidade ;
-	private String estadocivil, conjuge, capacidadecivil, numinss, formarecebinss, ocupacao, nivelcargo ;
+	private String estadocivil, conjuge, capacidadecivil, ocupacao, nivelcargo ;
 	private String empregador, nomeUsuario, senhaUsuario, tipoUsuario ;
 	private float rendamensal ;
 	private char sexo ;
@@ -142,21 +142,6 @@ public class Usuario {
 		this.capacidadecivil = capacidadecivil;
 	}
 
-	public String getNuminss() {
-		return numinss;
-	}
-
-	public void setNuminss(String numinss) {
-		this.numinss = numinss;
-	}
-
-	public String getFormarecebinss() {
-		return formarecebinss;
-	}
-
-	public void setFormarecebinss(String formarecebinss) {
-		this.formarecebinss = formarecebinss;
-	}
 
 	public String getOcupacao() {
 		return ocupacao;
