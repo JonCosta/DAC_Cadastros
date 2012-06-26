@@ -60,6 +60,44 @@ private Connection connection = null ;
         
         return tabela ;
         
+	}//Fecha ListarClientes()
+	
+public String listarFuncionarios(){
+		
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, " +
+				"estadocivil, cargo, departamento FROM usuario where isfuncionario = true" ;
+		
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        String tabela = "" ;
+        
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;
+            
+            while(rs.next()){
+            	tabela +=
+            		"<tr><th>"+rs.getObject(1)+"</th>"+
+            		"<th>"+rs.getObject(2)+"</th>" +
+            		"<th>"+rs.getObject(3)+"</th>" +
+            		"<th>"+rs.getObject(4)+"</th>" +
+            		"<th>"+rs.getObject(5)+"</th>" +
+            		"<th>"+rs.getObject(6)+"</th>" +
+            		"<th>"+rs.getObject(7)+"</th>" +
+            		"<th>"+rs.getObject(8)+"</th>"+
+            		"<th>"+rs.getObject(9)+"</th>"+
+            		"<th>"+rs.getObject(10)+"</th>"+
+            		"<th><input type='submit' value='Editar'/>" +
+            		"</th><th><input type='submit' value='Excluir'/>" +
+            		"</th></tr>";
+            }
+        }catch(SQLException e){
+        	
+        }
+        
+        return tabela ;
+        
 	}//Fecha Listar()
 	
 	public boolean verificarUsuario(Usuario u) throws SQLException{
