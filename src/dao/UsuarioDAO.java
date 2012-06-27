@@ -14,7 +14,7 @@ import modelo.Usuario ;
 
 public class UsuarioDAO {
 
-private Connection connection = null ;
+	private Connection connection = null ;
 	
 	public UsuarioDAO(){
 		
@@ -32,10 +32,7 @@ private Connection connection = null ;
 		
 		//Forma a SQL para inserção no BD
 		
-		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, " +
-				" nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, " +
-				" renda, nomeusuario, senhausuario, isfuncionario) " +
-				" VALUES ('?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?',false)" ;
+		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, isfuncionario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 		
 		try{
             //Prepara a SQL com os valores do objeto Usuario recebido
@@ -64,6 +61,7 @@ private Connection connection = null ;
             stmt.setFloat(21, u.getRenda()) ;
             stmt.setString(22, u.getNomeUsuario()) ;
             stmt.setString(23, u.getSenhaUsuario()) ;
+            stmt.setBoolean(24, false) ;
             
             stmt.execute() ;
             stmt.close() ;

@@ -12,8 +12,6 @@
 	<h2></h2>
 		<p></p>
 		
-		
-		
 		<table  width="50%">
 			<tr>
 				<td>
