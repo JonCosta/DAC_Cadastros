@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-	<title>Cadastro de cliente</title>
+	<title>Cadastro de funcionário</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="author" content="Assemblesoft">
 	<meta name="keywords" content="">
@@ -19,8 +19,8 @@
 </head>
 <body>
 
-	<h2>Cadastro de Novo Cliente</h2>
-	<form action="cadastrarCliente.jsp" method='post'>
+	<h2>Cadastro de Novo Funcionário</h2>
+	<form action="cadastraCliente.jsp" method='post'>
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
@@ -37,13 +37,13 @@
 			<div>
 				<label for="tipodoc">Tipo documento</label>
 				<select name="tipodoc" >
-					<option value="RG">RG</option>
-					<option value="Certidão de Nascimento">Certidão de nascimento</option>
-					<option value="Outro">Outro...</option>
+					<option value="rg">RG</option>
+					<option value="cpf">Certidão de nascimento</option>
+					<option value="outro">Outro...</option>
 				</select>
 			</div>
 			<div>
-				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numdoc" >
+				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numodoc" >
 			</div>
 			<div>
 				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" >
@@ -56,15 +56,80 @@
 				<fieldset>
 					<legend><span>Sexo</span></legend>
 					<div>
-						<input type="radio" id="male" name="sexo" value="Masculino"> <label for="male">Masculino</label>
+						<input type="radio" id="male" name="sexo" value="masc"> <label for="male">Masculino</label>
 					</div>
 					<div>
-						<input type="radio" id="female" name="sexo" value="Feminino"> <label for="female">Feminino</label>
+						<input type="radio" id="female" name="sexo" value="fem"> <label for="female">Feminino</label>
 					</div>
 				</fieldset>
 			</div>
-			<div>
-				<label for="data">Data de Nascimento</label><input type="text" id="dtnascimento" name="dtnascimento" >
+			<div class="date">
+				<fieldset>
+					<legend><span>Data de nascimento</span></legend>
+					<div>
+						<label for="dia">Dia</label>
+						<select id="dia" name="dtnasc_dia">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+					</div>
+					<div>
+						<label for="mes">Mês</label>
+						<select id="mes" name="dtnasc_mes">
+							<option value="1">Janeiro</option>
+							<option value="2">Fevereiro</option>
+							<option value="3">Março</option>
+							<option value="4">Abril</option>
+							<option value="5">Maio</option>
+							<option value="6">Junho</option>
+							<option value="7">Julho</option>
+							<option value="8">Agosto</option>
+							<option value="9">Setembro</option>
+							<option value="10">Outubro</option>
+							<option value="11">Novembro</option>
+							<option value="12">Dezembro</option>
+						</select>
+					</div>
+					<div>
+						<label for="ano">Ano</label>
+						<select id="ano name="dtnasc_ano">
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+						</select>
+					</div>
+				</fieldset>
 			</div>
 			<div>
 				<label for="email">Email</label> <input type="text" id="email" name="email" class="email">
@@ -72,10 +137,10 @@
 			<div>
 				<label for="estciv">Estado Civil</label> 
 				<select name="estciv">
-					<option value="Solteiro">Solteiro</option>
-					<option value="Casado">Casado</option>
-					<option value="Divorciado">Divorciado</option>
-					<option value="Viúvo">Viúvo</option>
+					<option value="solteiro">Solteiro</option>
+					<option value="casado">Casado</option>
+					<option value="divorcio">Divorciado</option>
+					<option value="viúvo">Viúvo</option>
 				</select>
 			</div>
 			<div>
@@ -93,9 +158,9 @@
 			<div>	
 				<label for="capciv">Capacidade Civil</label>
 				<select name="capciv">
-					<option value="Maior">Maior</option>
-					<option value="Menor">Menor</option>
-					<option value="Nec. Especiais">Nec. Especiais</option>
+					<option value="solteiro">Maior</option>
+					<option value="casado">Menor</option>
+					<option value="divorcio">Nec. Especiais</option>
 					
 				</select>
 			</div>

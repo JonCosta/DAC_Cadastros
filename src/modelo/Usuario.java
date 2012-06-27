@@ -3,15 +3,76 @@ package modelo;
 public class Usuario {
 	
 	private int idcliente, situacao ;
-	private String cpf, nome, numTelefone, nomepai, nomemae, tipodoc, numdoc, emissor, naturalidade, nacionalidade ;
-	private String estadocivil, conjuge, capacidadecivil, ocupacao, nivelcargo ;
-	private String empregador, nomeUsuario, senhaUsuario, tipoUsuario ;
-	private float rendamensal ;
-	private char sexo ;
+	private String cpf, nome, numTelefone, nomepai, nomemae, tipodoc, numdoc, emissor, dataNasc, dtEmiss, naturalidade, nacionalidade ;
+	private String estadocivil, conjuge, capacidadecivil, ocupacao, inicioocupacao, nivelcargo, email ;
+	private String empregador, nomeUsuario, senhaUsuario, tipoUsuario , sexo ;
+	private float renda ;
 	private boolean isFuncionario ;
 	
+	
+	public Usuario(String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
+			String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
+			String capacidadecivil, String ocupacao, String inicioocuapcao, String empregador, float renda, String nomeUsuario, String senhaUsuario, 
+			boolean isFuncionario ){
+		
+		this.nome = nome ;
+		this.cpf = cpf ;
+		this.tipodoc = tipodoc ;
+		this.numdoc = numdoc ;
+		this.emissor = emissor ;
+		this.dtEmiss = dtEmiss ;
+		this.sexo = sexo ;
+		this.dataNasc = dataNasc ;
+		this.estadocivil = estadocivil ;
+		this.email = email ;
+		this.conjuge = conjuge ;
+		this.nomepai = nomepai ;
+		this.nomemae = nomemae ;
+		this.numTelefone = telefone ;
+		this.nacionalidade = nacionalidade ;
+		this.naturalidade = naturalidade ;
+		this.capacidadecivil = capacidadecivil ;
+		this.ocupacao = ocupacao ;
+		this.inicioocupacao = inicioocuapcao ;
+		this.empregador = empregador ;
+		this.renda = renda ;
+		this.nomeUsuario = nomeUsuario ;
+		this.senhaUsuario = senhaUsuario ;
+		this.isFuncionario = isFuncionario ;
+		
+	}//Fecha usuario
+	
+	
+	
+	public String getInicioocupacao() {
+		return inicioocupacao;
+	}
+
+	public void setInicioocupacao(String inicioocupacao) {
+		this.inicioocupacao = inicioocupacao;
+	}
+
+
+
+
 	public String getNumTelefone() {
 		return numTelefone;
+	}
+
+	public String getDataNasc() {
+		return dataNasc;
+	}
+
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+
+	public String getDtEmiss() {
+		return dtEmiss;
+	}
+
+	public void setDtEmiss(String dtEmiss) {
+		this.dtEmiss = dtEmiss;
 	}
 
 	public void setNumTelefone(String numTelefone) {
@@ -25,11 +86,7 @@ public class Usuario {
 	public void setFuncionario(boolean isFuncionario) {
 		this.isFuncionario = isFuncionario;
 	}
-
-	public Usuario(){
-		
-	}
-
+	
 	public int getIdcliente() {
 		return idcliente;
 	}
@@ -191,22 +248,31 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	public float getRendamensal() {
-		return rendamensal;
-	}
-
-	public void setRendamensal(float rendamensal) {
-		this.rendamensal = rendamensal;
-	}
-
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
+
+	public float getRenda() {
+		return renda;
+	}
+
+	public void setRenda(float renda) {
+		this.renda = renda;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 	
 	
 }//Fecha classe

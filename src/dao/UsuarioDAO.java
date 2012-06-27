@@ -27,6 +27,60 @@ private Connection connection = null ;
 	}//Fecha construtor	
 	
 	
+	//Função  para cadastro de cliente
+	public boolean cadastrarCliente(Usuario u) {
+		
+		//Forma a SQL para inserção no BD
+		
+		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, " +
+				" nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, " +
+				" renda, nomeusuario, senhausuario, isfuncionario) " +
+				" VALUES ('?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?','?',false)" ;
+		
+		try{
+            //Prepara a SQL com os valores do objeto Usuario recebido
+			PreparedStatement stmt = connection.prepareStatement(sql) ;
+			
+            stmt.setString(1, u.getNome()) ;
+            stmt.setString(2, u.getCpf()) ;
+            stmt.setString(3, u.getTipodoc()) ;
+            stmt.setString(4, u.getNumdoc()) ;
+            stmt.setString(5, u.getEmissor()) ;
+            stmt.setString(6, u.getDtEmiss()) ;
+            stmt.setString(7, u.getSexo()) ;
+            stmt.setString(8, u.getDataNasc()) ;
+            stmt.setString(9, u.getEstadocivil()) ;
+            stmt.setString(10, u.getEmail()) ;
+            stmt.setString(11, u.getConjuge()) ;
+            stmt.setString(12, u.getNomepai()) ;
+            stmt.setString(13, u.getNomemae()) ;
+            stmt.setString(14, u.getNumTelefone()) ;
+            stmt.setString(15, u.getNacionalidade()) ;
+            stmt.setString(16, u.getNaturalidade()) ;
+            stmt.setString(17, u.getCapacidadecivil()) ;
+            stmt.setString(18, u.getOcupacao()) ;
+            stmt.setString(19, u.getInicioocupacao()) ;
+            stmt.setString(20, u.getEmpregador()) ;
+            stmt.setFloat(21, u.getRenda()) ;
+            stmt.setString(22, u.getNomeUsuario()) ;
+            stmt.setString(23, u.getSenhaUsuario()) ;
+            
+            stmt.execute() ;
+            stmt.close() ;
+            
+            return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
+            
+        }catch(SQLException e1){
+        	
+        	return false ; //Retorna falso caso haja algum erro na SQL
+          
+        }catch(Exception e){
+        	System.out.println("Outro erro") ;
+          return false ; //Retorna erro caso haja algum outro erro
+        }
+		
+	}//Fecha cadastrarCliente()
+	
 	public String listarClientes(){
 		
 		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil FROM usuario where isfuncionario = false" ;
@@ -62,7 +116,7 @@ private Connection connection = null ;
         
 	}//Fecha ListarClientes()
 	
-public String listarFuncionarios(){
+	public String listarFuncionarios(){
 		
 		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, " +
 				"estadocivil, cargo, departamento FROM usuario where isfuncionario = true" ;
