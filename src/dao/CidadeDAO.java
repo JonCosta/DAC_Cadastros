@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import com.mysql.jdbc.exceptions.* ;
 
 import jdbc.ConnectionFactory;
@@ -24,6 +26,37 @@ public class CidadeDAO {
 		}
 		
 	}//Fecha construtor	
+	
+	public ArrayList<Cidade> arrayCidade(){
+		
+		ArrayList<Cidade> p = new ArrayList<Cidade>();
+		
+		String sql = "select * from cidade" ;
+		Statement stmt = null ;
+        ResultSet rs = null ;
+
+        try{
+           
+            stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;
+        	
+        	while( rs.next() ){
+                
+                int id = rs.getInt("idcidade");
+                String nome = rs.getString("nomecidade");
+                String uf = rs.getString("siglauf");
+                Cidade c = new Cidade(id, nome, uf) ; 
+                p.add(c);
+            }                       
+                                                                               
+         }
+        catch(SQLException e){
+             System.out.println("ERRO: obtenção de dados do ResultSet");
+             System.out.println( e.getMessage() ) ;
+          }
+        return p;
+		
+	}//Fecha arrayCidade
 	
 	public String listaUFs(){
 		

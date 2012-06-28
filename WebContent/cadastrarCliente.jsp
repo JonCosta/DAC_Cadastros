@@ -22,7 +22,6 @@
 	String nomeuser = "", senhauser = "", senha2 = "" ;
 	float renda = 0 ;
 	
-	//Variáveis recebem parâmetros do formulário
 	nome = primeironome + " " + ultimonome ;
 	cpf = request.getParameter("cpf") ;
 	tipodoc = request.getParameter("tipodoc") ;
@@ -51,31 +50,33 @@
 	senhauser = request.getParameter("senha") ;
 	senha2 = request.getParameter("senha2") ;
 	
-	System.out.println() ;
-
-
-if ((primeironome == "")||(ultimonome=="")||(cpf=="")) { %>
+	String estado = request.getParameter("estado") ;
+	String cidade = request.getParameter("cidade") ;
 	
-	"Erro no formulário"
-<%	
-}else{ 
+	//System.out.println(estado+ " " +cidade) ;
 	
-	Usuario u = new Usuario(nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, email, conjuge, nomepai, nomemae, 
+	
+	if ((primeironome == "")||(ultimonome=="")||(cpf=="")) { %>
+	
+		"Erro no formulário"
+	<%	
+	}else{ 
+	
+		Usuario u = new Usuario(nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, email, conjuge, nomepai, nomemae, 
 			telefone, nacionalidade, naturalidade, capciv, ocupacao, inicioocupa, empregador, renda, nomeuser, senhauser, false) ;
 	
-	UsuarioDAO dao = new UsuarioDAO() ;
-	boolean ok = dao.cadastrarCliente(u) ;
+		UsuarioDAO dao = new UsuarioDAO() ;
+		boolean ok = dao.cadastrarCliente(u) ;
+		
+		if(ok){
+			%>Cadastro realizado com sucesso<%
+		}else{
+			%>Erro ocorrido durante o cadastro<%
+		} 
 	
-	if(ok){
-		%>Cadastro realizado com sucesso<%
-	}else{
-		%>Erro ocorrido durante o cadastro<%
-	} 
-	
-}//Fecha else de campos vazios
+	}//Fecha else de campos vazios
 
-%>
-
+	%>
 
 </body>
 </html>

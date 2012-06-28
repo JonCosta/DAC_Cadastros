@@ -6,7 +6,11 @@ public class Cidade {
 	private String nomeCidade, siglaUF ;
 	
 	
-	public Cidade(){
+	public Cidade(int id, String nome, String sigla){
+		
+		this.idCidade = id ;
+		this.nomeCidade = nome ;
+		this.siglaUF = sigla ;
 		
 	}//Fecha Cidade()
 	

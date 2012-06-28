@@ -171,6 +171,29 @@
 				<label for="nomemae">Nome da mãe</label><input type="text" name="nomemae"/>
 			</div>	
 		</fieldset>
+		<fieldset class="endereco">
+			<legend>Dados de Endereço</legend>
+			<div>
+				<label for="cep">CEP</label> <input type="text" id="cep" name="cep">
+			</div>
+			<div>	
+				<label for="estado">Estado</label>
+				<select id="estado" name="estado"></select>
+			</div>
+			<div>	
+				<label for="estado">Cidade</label>
+				<select id="cidade" name="cidade"></select>
+			</div>
+			<div>
+				<label for="bairro">Bairro</label> <input type="text" id="bairro" name="bairro">
+			</div>
+			<div>
+				<label for="complemento">Complemento</label> <input type="text" id="complemento" name="complemento">
+			</div>
+			<div>
+				<label for="tempores">Tempo de residência</label> <input type="text" id="tempores" name="tempores">
+			</div>
+		</fieldset>
 		<fieldset>		
 			<legend>Dados profissionais</legend>
 			<div>	

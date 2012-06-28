@@ -6,6 +6,8 @@
 <html lang="en">
 <head>
 	<title>Cadastro de cliente</title>
+	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
+	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="author" content="Assemblesoft">
 	<meta name="keywords" content="">
@@ -18,6 +20,15 @@
 	<script type="text/javascript" src="js/form.js"></script>
 </head>
 <body>
+	
+	<script type="text/javascript">
+window.onload = function() {
+  new dgCidadesEstados({
+    estado: document.getElementById('estado'),
+    cidade: document.getElementById('cidade')
+  });
+}
+</script>
 	
 	<%@ page import="dao.CidadeDAO" %>
 	
@@ -115,11 +126,11 @@
 			</div>
 			<div>	
 				<label for="estado">Estado</label>
-				<select name="estado">
-					<% CidadeDAO cid = new CidadeDAO() ;
-					String lista = cid.listaUFs(); %>
-					<%= lista %>
-				</select>
+				<select id="estado" name="estado"></select>
+			</div>
+			<div>	
+				<label for="estado">Cidade</label>
+				<select id="cidade" name="cidade"></select>
 			</div>
 			<div>
 				<label for="bairro">Bairro</label> <input type="text" id="bairro" name="bairro">
