@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 	<title>Cadastro de funcionário</title>
+	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="author" content="Assemblesoft">
 	<meta name="keywords" content="">
@@ -19,8 +20,17 @@
 </head>
 <body>
 
+		<script type="text/javascript">
+		window.onload = function() {
+		  new dgCidadesEstados({
+		    estado: document.getElementById('estado'),
+		    cidade: document.getElementById('cidade')
+		  });
+		}
+		</script>
+
 	<h2>Cadastro de Novo Funcionário</h2>
-	<form action="cadastraCliente.jsp" method='post'>
+	<form action="cadastraFuncionario.jsp" method='post'>
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
@@ -37,13 +47,13 @@
 			<div>
 				<label for="tipodoc">Tipo documento</label>
 				<select name="tipodoc" >
-					<option value="rg">RG</option>
-					<option value="cpf">Certidão de nascimento</option>
-					<option value="outro">Outro...</option>
+					<option value="RG">RG</option>
+					<option value="Certidão de Nascimento">Certidão de nascimento</option>
+					<option value="Outro...">Outro...</option>
 				</select>
 			</div>
 			<div>
-				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numodoc" >
+				<label for="numdoc">N° documento</label><input type="text" id="numdoc" name="numdoc" >
 			</div>
 			<div>
 				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" >
@@ -56,80 +66,15 @@
 				<fieldset>
 					<legend><span>Sexo</span></legend>
 					<div>
-						<input type="radio" id="male" name="sexo" value="masc"> <label for="male">Masculino</label>
+						<input type="radio" id="male" name="sexo" value="Masculino"> <label for="male">Masculino</label>
 					</div>
 					<div>
-						<input type="radio" id="female" name="sexo" value="fem"> <label for="female">Feminino</label>
+						<input type="radio" id="female" name="sexo" value="Feminino"> <label for="female">Feminino</label>
 					</div>
 				</fieldset>
 			</div>
-			<div class="date">
-				<fieldset>
-					<legend><span>Data de nascimento</span></legend>
-					<div>
-						<label for="dia">Dia</label>
-						<select id="dia" name="dtnasc_dia">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-					</div>
-					<div>
-						<label for="mes">Mês</label>
-						<select id="mes" name="dtnasc_mes">
-							<option value="1">Janeiro</option>
-							<option value="2">Fevereiro</option>
-							<option value="3">Março</option>
-							<option value="4">Abril</option>
-							<option value="5">Maio</option>
-							<option value="6">Junho</option>
-							<option value="7">Julho</option>
-							<option value="8">Agosto</option>
-							<option value="9">Setembro</option>
-							<option value="10">Outubro</option>
-							<option value="11">Novembro</option>
-							<option value="12">Dezembro</option>
-						</select>
-					</div>
-					<div>
-						<label for="ano">Ano</label>
-						<select id="ano name="dtnasc_ano">
-							<option value="2004">2004</option>
-							<option value="2005">2005</option>
-							<option value="2006">2006</option>
-							<option value="2007">2007</option>
-							<option value="2008">2008</option>
-						</select>
-					</div>
-				</fieldset>
+			<div>
+				<label for="data">Data de Nascimento</label> <input type="text" id="dtnascimento" name="dtnascimento" class="dtnascimento">
 			</div>
 			<div>
 				<label for="email">Email</label> <input type="text" id="email" name="email" class="email">
@@ -137,10 +82,10 @@
 			<div>
 				<label for="estciv">Estado Civil</label> 
 				<select name="estciv">
-					<option value="solteiro">Solteiro</option>
-					<option value="casado">Casado</option>
-					<option value="divorcio">Divorciado</option>
-					<option value="viúvo">Viúvo</option>
+					<option value="Solteiro">Solteiro</option>
+					<option value="Casado">Casado</option>
+					<option value="Divorcio">Divorciado</option>
+					<option value="Viúvo">Viúvo</option>
 				</select>
 			</div>
 			<div>
@@ -158,9 +103,9 @@
 			<div>	
 				<label for="capciv">Capacidade Civil</label>
 				<select name="capciv">
-					<option value="solteiro">Maior</option>
-					<option value="casado">Menor</option>
-					<option value="divorcio">Nec. Especiais</option>
+					<option value="Maior">Maior</option>
+					<option value="Menor">Menor</option>
+					<option value="Nec. Especiais">Nec. Especiais</option>
 					
 				</select>
 			</div>
@@ -171,7 +116,7 @@
 				<label for="nomemae">Nome da mãe</label><input type="text" name="nomemae"/>
 			</div>	
 		</fieldset>
-		<fieldset class="endereco">
+		<fieldset class="login">
 			<legend>Dados de Endereço</legend>
 			<div>
 				<label for="cep">CEP</label> <input type="text" id="cep" name="cep">
@@ -191,18 +136,29 @@
 				<label for="complemento">Complemento</label> <input type="text" id="complemento" name="complemento">
 			</div>
 			<div>
-				<label for="tempores">Tempo de residência</label> <input type="text" id="tempores" name="tempores">
+				<label for="logradouro">Logradouro</label> <input type="text" id="logradouro" name="logradouro">
+			</div>
+			<div>
+				<label for="tipores">Tipo de Residência</label>
+				<select name="tipores">
+					<option value="Residência">Residência</option>
+					<option value="Apartamento">Apartamento</option>
+					<option value="Outro">Outro...</option>
+				</select>
+			</div>
+			<div>
+				<label for="tempores">Tempo de Residência</label> <input type="text" id="tempores" name="tempores">
 			</div>
 		</fieldset>
 		<fieldset>		
 			<legend>Dados profissionais</legend>
 			<div>	
-				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30"/>
+				<label for="cargo">Cargo</label><input type="text" name="cargo" size="30"/>
 			</div>
 			<div>
-				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7"/>
+				<label for="nivelcargo">Nível do Cargo</label><input type="text" name="nivelcargo" size="7"/>
 			</div>
-				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30"/>
+				<label for="departamento">Departamento</label><input type="text" name="departamento" size="30"/>
 			<div>
 				<label for="renda">Renda Mensal</label><input type="text" name="renda"/>
 			</div>

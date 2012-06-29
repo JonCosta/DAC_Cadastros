@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Cadastro de Cliente</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 	
 	String nome = "", cpf = "",  tipodoc = "", numdoc = "", emissor  = "", dtemiss = "", sexo = "";
 	String data = "", estciv = "", nomepai = "", nomemae = "", email ="", conjuge = "", telefone = "", nacionalidade = "" ;
-	String naturalidade = "", capciv = "", ocupacao = "", inicioocupa = "", empregador = "" ;
+	String naturalidade = "", capciv = "", cargo = "", nivelcargo= "", departamento = "" ;
 	String nomeuser = "", senhauser = "", senha2 = "" ;
 	String cep = "", cidade = "", estado = "", bairro = "", complemento = "", tipores = "", logradouro = "" ;
 	int tempores = 0 ;
@@ -48,9 +49,9 @@
 		nacionalidade = request.getParameter("nacionalidade") ;
 		naturalidade = request.getParameter("naturalidade") ;
 		capciv = request.getParameter("capciv") ;
-		ocupacao = request.getParameter("ocupacao") ; 
-		inicioocupa = request.getParameter("inicioocupa") ;
-		empregador = request.getParameter("empregador") ;
+		cargo = request.getParameter("cargo") ; 
+		nivelcargo = request.getParameter("nivelcargo") ;
+		departamento = request.getParameter("departamento") ;
 		renda = Float.parseFloat(request.getParameter("renda") ) ;
 		
 		nomeuser = request.getParameter("username") ;
@@ -78,9 +79,9 @@
 			int id = edao.getMaxId() ;
 			
 			Usuario u = new Usuario(id, nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, email, conjuge, nomepai, nomemae, 
-					telefone, nacionalidade, naturalidade, capciv, ocupacao, inicioocupa, empregador, renda, nomeuser, senhauser, false) ;
+					telefone, nacionalidade, naturalidade, capciv, renda, cargo, nivelcargo, departamento, nomeuser, senhauser, true) ;
 			
-			boolean ok2 = dao.cadastrarCliente(u) ;
+			boolean ok2 = dao.cadastrarFuncionario(u) ;
 			
 			if(ok2){
 				%>Cadastro realizado com sucesso<%
@@ -89,6 +90,9 @@
 			}
 			
 		}//if ok1
+		else{
+			%>Erro ocorrido durante o cadastro<%
+		}
 		 
 		
 	}catch(NumberFormatException e1){

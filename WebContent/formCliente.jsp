@@ -30,8 +30,6 @@ window.onload = function() {
 }
 </script>
 	
-	<%@ page import="dao.CidadeDAO" %>
-	
 	<h2>Cadastro de Novo Cliente</h2>
 	<form action="cadastrarCliente.jsp" method='post'>
 		<p>Por favor, preencha os campos a seguir:</p>
@@ -139,7 +137,18 @@ window.onload = function() {
 				<label for="complemento">Complemento</label> <input type="text" id="complemento" name="complemento">
 			</div>
 			<div>
-				<label for="tempores">Tempo de residência</label> <input type="text" id="tempores" name="tempores">
+				<label for="logradouro">Logradouro</label> <input type="text" id="logradouro" name="logradouro">
+			</div>
+			<div>
+				<label for="tipores">Tipo de Residência</label>
+				<select name="tipores">
+					<option value="Residência">Residência</option>
+					<option value="Apartamento">Apartamento</option>
+					<option value="Outro">Outro...</option>
+				</select>
+			</div>
+			<div>
+				<label for="tempores">Tempo de Residência</label> <input type="text" id="tempores" name="tempores">
 			</div>
 		</fieldset>
 		<fieldset>		

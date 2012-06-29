@@ -32,7 +32,7 @@ public class UsuarioDAO {
 		
 		//Forma a SQL para inserção no BD
 		
-		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, isfuncionario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, isfuncionario, idendereco) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 		
 		try{
             //Prepara a SQL com os valores do objeto Usuario recebido
@@ -62,6 +62,7 @@ public class UsuarioDAO {
             stmt.setString(22, u.getNomeUsuario()) ;
             stmt.setString(23, u.getSenhaUsuario()) ;
             stmt.setBoolean(24, false) ;
+            stmt.setInt(25, u.getIdendereco()) ;
             
             stmt.execute() ;
             stmt.close() ;
@@ -69,15 +70,61 @@ public class UsuarioDAO {
             return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
             
         }catch(SQLException e1){
-        	
         	return false ; //Retorna falso caso haja algum erro na SQL
-          
         }catch(Exception e){
-        	System.out.println("Outro erro") ;
-          return false ; //Retorna erro caso haja algum outro erro
+        	return false ; //Retorna erro caso haja algum outro erro
         }
 		
 	}//Fecha cadastrarCliente()
+	
+	public boolean cadastrarFuncionario(Usuario u){
+		
+		//Forma a SQL para inserção no BD
+		
+				String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, cargo, nivelcargo, departamento, renda, nomeusuario, senhausuario, isfuncionario, idendereco) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+				
+				try{
+		            //Prepara a SQL com os valores do objeto Usuario recebido
+					PreparedStatement stmt = connection.prepareStatement(sql) ;
+					
+		            stmt.setString(1, u.getNome()) ;
+		            stmt.setString(2, u.getCpf()) ;
+		            stmt.setString(3, u.getTipodoc()) ;
+		            stmt.setString(4, u.getNumdoc()) ;
+		            stmt.setString(5, u.getEmissor()) ;
+		            stmt.setString(6, u.getDtEmiss()) ;
+		            stmt.setString(7, u.getSexo()) ;
+		            stmt.setString(8, u.getDataNasc()) ;
+		            stmt.setString(9, u.getEstadocivil()) ;
+		            stmt.setString(10, u.getEmail()) ;
+		            stmt.setString(11, u.getConjuge()) ;
+		            stmt.setString(12, u.getNomepai()) ;
+		            stmt.setString(13, u.getNomemae()) ;
+		            stmt.setString(14, u.getNumTelefone()) ;
+		            stmt.setString(15, u.getNacionalidade()) ;
+		            stmt.setString(16, u.getNaturalidade()) ;
+		            stmt.setString(17, u.getCapacidadecivil()) ;
+		            stmt.setString(18, u.getCargo()) ;
+		            stmt.setString(19, u.getNivelcargo()) ;
+		            stmt.setString(20, u.getDepartamento()) ;
+		            stmt.setFloat(21, u.getRenda()) ;
+		            stmt.setString(22, u.getNomeUsuario()) ;
+		            stmt.setString(23, u.getSenhaUsuario()) ;
+		            stmt.setBoolean(24, true) ;
+		            stmt.setInt(25, u.getIdendereco()) ;
+		            
+		            stmt.execute() ;
+		            stmt.close() ;
+		            
+		            return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
+		            
+		        }catch(SQLException e1){
+		        	return false ; //Retorna falso caso haja algum erro na SQL
+		        }catch(Exception e){
+		        	return false ; //Retorna erro caso haja algum outro erro
+		        }
+		
+	}
 	
 	public String listarClientes(){
 		

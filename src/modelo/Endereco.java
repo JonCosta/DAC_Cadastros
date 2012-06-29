@@ -3,13 +3,44 @@ package modelo;
 public class Endereco {
 	
 	private int idEndereco, temporesidencia ;
-	private String logradouro, cep, complemento, bairro, tipoMoradia ;
+	private String logradouro, cep, complemento, bairro, tipoMoradia, cidade, siglauf ;
 	
-	public Endereco(){
+	//Construtor
+	public Endereco(String cep, String cidade, String siglauf, String bairro, String logradouro, String complemento, String tipoMoradia, int temporesidencia){
+		
+		this.cep = cep;
+		this.cidade = cidade ;
+		this.siglauf = siglauf ;
+		this.bairro = bairro ;
+		this.logradouro = logradouro ;
+		this.complemento = complemento ;
+		this.tipoMoradia = tipoMoradia ;
+		this.temporesidencia = temporesidencia ;
 		
 	}//Fecha Endereco()
 
 	
+	/*GETTERS E SETTERS*/
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+
+	public String getSiglauf() {
+		return siglauf;
+	}
+
+
+	public void setSiglauf(String siglauf) {
+		this.siglauf = siglauf;
+	}
+
+
 	public int getIdEndereco() {
 		return idEndereco;
 	}

@@ -23,7 +23,7 @@
 					</form>
 				</td>
 				<td align="right">
-					<form action="formCliente.jsp"><input type="submit" value ="Novo cadastro"/></form>
+					<form action="formFuncionario.jsp"><input type="submit" value ="Novo cadastro"/></form>
 				</td>
 			</tr>
 		</table>
