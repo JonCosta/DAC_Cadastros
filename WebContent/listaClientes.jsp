@@ -30,38 +30,7 @@
 	<form name="formCRUD" action="">
 
 		<table border="1" width="50%">
-		<tr>
-			<th>
-				Nome
-			</th>
-			<th>
-				CPF
-			</th>
-			<th>
-				Tipo de Doc.
-			</th>
-			<th>
-				Núm. de Doc.
-			</th>
-			<th>
-				Telefone
-			</th>
-			<th>
-				Sexo
-			</th>
-			<th>
-				Data de Nasc.
-			</th>
-			<th>
-				Estado Civil
-			</th>
-			<th>
-				Editar
-			</th>
-			<th>
-				Excluir
-			</th>
-		</tr>
+		
 		
 		<%@ page import="dao.UsuarioDAO" %>
 		

@@ -139,6 +139,19 @@ public class UsuarioDAO {
         	stmt = connection.createStatement() ;
             rs = stmt.executeQuery(sql) ;
             
+            tabela = "<tr>" +
+			"<th>Nome</th>" +
+			"<th>CPF</th>" +
+			"<th>Tipo de Doc.</th>" +
+			"<th>Núm. de Doc.</th>" +
+			"<th>Telefone</th>" +
+			"<th>Sexo</th>" +
+			"<th>Data de Nasc.</th>" +
+			"<th>Estado Civil</th>" +
+			"<th>Editar</th>" +
+			"<th>Excluir</th>" +
+			"</tr>" ; 
+            
             while(rs.next()){
             	tabela +=
             		"<tr><th>"+rs.getObject(1)+"</th>"+
@@ -199,6 +212,7 @@ public class UsuarioDAO {
         
 	}//Fecha Listar()
 	
+	//autenticar login
 	public boolean verificarUsuario(Usuario u) throws SQLException{
 		
 		 String sql="select * from usuario where nomeUsuario =? and senhaUsuario = ?";
