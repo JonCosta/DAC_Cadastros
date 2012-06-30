@@ -27,7 +27,6 @@
 		</table>
 		
 	<br>
-	<form name="formCRUD" action="">
 
 		<table border="1" width="50%">
 		
@@ -44,9 +43,7 @@
 		<tr>
 			<%=tabela %>
 		</tr>
-		</table>
-		
-	</form>	
+		</table>	
 </body>
 </html>
 

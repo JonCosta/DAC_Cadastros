@@ -10,6 +10,10 @@ public class Usuario {
 	private boolean isFuncionario ;
 	
 	
+	public Usuario() {
+		
+	}
+	
 	public Usuario(int idendereco, String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
 			String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
 			String capacidadecivil, String ocupacao, String inicioocuapcao, String empregador, float renda, String nomeUsuario, String senhaUsuario, 

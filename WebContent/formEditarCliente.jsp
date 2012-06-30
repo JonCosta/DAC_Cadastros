@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-	<title>Cadastro de cliente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Edição de Cliente</title>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -20,6 +19,20 @@
 	<script type="text/javascript" src="js/form.js"></script>
 </head>
 <body>
+
+<%@ page import="dao.UsuarioDAO" %>
+<%@ page import="dao.EnderecoDAO" %>
+<%@ page import="modelo.Usuario" %>
+<%@ page import="modelo.Endereco" %>
+
+<%
+	int i = Integer.parseInt(request.getParameter("id")) ;
+	UsuarioDAO dao = new UsuarioDAO() ;
+	EnderecoDAO edao = new EnderecoDAO() ;
+	Usuario u = dao.getCliente(i) ;
+	Endereco e = edao.getEndereco(i) ;
+%>
+	
 	
 	<script type="text/javascript">
 	window.onload = function() {
@@ -30,37 +43,34 @@
 	}
 	</script>
 	
-	<h2>Cadastro de Novo Cliente</h2>
-	<form action="cadastrarCliente.jsp" method='post'>
-		<p>Por favor, preencha os campos a seguir:</p>
+	<h2>Edição de Cliente</h2>
+	<form action="editarCliente.jsp" method='post'>
+		<p>Lembre-se de preencher todos os campos:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
 			<div>
-				<label for="firstname">Primeiro Nome</label> <input type="text" id="firstname" name="primeironome" >
+				<label for="firstname">Nome</label> <input type="text" id="firstname" name="nome" value='<%= u.getNome() %>' >
 			</div>
 			<div>
-				<label for="lastname">Último nome</label> <input type="text" id="lastname" name="ultimonome">
-			</div>
-			<div>
-				<label for="cpf">CPF</label> <input type="text" id="cpf" name="cpf">
+				<label for="cpf">CPF</label> <input type="text" id="cpf" name="cpf" value='<%= u.getCpf() %>'>
 			</div>
 
 			<div>
 				<label for="tipodoc">Tipo documento</label>
-				<select name="tipodoc" >
+				<select name="tipodoc">
 					<option value="RG">RG</option>
 					<option value="Certidão de Nascimento">Certidão de nascimento</option>
 					<option value="Outro">Outro...</option>
 				</select>
 			</div>
 			<div>
-				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numdoc" >
+				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numdoc" value='<%= u.getNumdoc() %>'>
 			</div>
 			<div>
-				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" >
+				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" value='<%= u.getEmissor() %>' >
 			</div>
 			<div>
-				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" >
+				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" value='<%= u.getDtEmiss() %>' >
 			</div>
 		
 			<div class="radio">
@@ -75,10 +85,10 @@
 				</fieldset>
 			</div>
 			<div>
-				<label for="data">Data de Nascimento</label><input type="text" id="dtnascimento" name="dtnascimento" >
+				<label for="data">Data de Nascimento</label><input type="text" id="dtnascimento" name="dtnascimento" value='<%= u.getDataNasc() %>'>
 			</div>
 			<div>
-				<label for="email">Email</label> <input type="text" id="email" name="email" class="email">
+				<label for="email">Email</label> <input type="text" id="email" name="email" class="email" value='<%= u.getEmail() %>'>
 			</div>
 			<div>
 				<label for="estciv">Estado Civil</label> 
@@ -90,16 +100,16 @@
 				</select>
 			</div>
 			<div>
-				<label for="conjuge">Conjuge</label> <input type="text" name="conjuge"/>
+				<label for="conjuge">Conjuge</label> <input type="text" name="conjuge" value='<%= u.getConjuge() %>'/>
 			</div>
 			<div>	
-				<label for="telefone">Telefone</label><input type="text" name="telefone"/>
+				<label for="telefone">Telefone</label><input type="text" name="telefone" value='<%= u.getNumTelefone() %>'/>
 			</div>
 			<div>	
-				<label for="nacionalidade">Nacionalidade</label><input type="text" name="nacionalidade"/>
+				<label for="nacionalidade">Nacionalidade</label><input type="text" name="nacionalidade"/ value='<%= u.getNacionalidade() %>'>
 			</div>
 			<div>	
-				<label for="naturalidade">Naturalidade</label><input type="text" name="naturalidade"/>
+				<label for="naturalidade">Naturalidade</label><input type="text" name="naturalidade" value='<%= u.getNaturalidade() %>'/>
 			</div>	
 			<div>	
 				<label for="capciv">Capacidade Civil</label>
@@ -111,10 +121,10 @@
 				</select>
 			</div>
 			<div>	
-				<label for="nomepai">Nome do pai</label><input type="text" name="nomepai"/>
+				<label for="nomepai">Nome do pai</label><input type="text" name="nomepai" value='<%= u.getNomepai() %>'/>
 			</div>
 			<div>	
-				<label for="nomemae">Nome da mãe</label><input type="text" name="nomemae"/>
+				<label for="nomemae">Nome da mãe</label><input type="text" name="nomemae" value='<%= u.getNomemae() %>'/>
 			</div>	
 		</fieldset>
 		<fieldset class="login">
@@ -154,34 +164,33 @@
 		<fieldset>		
 			<legend>Dados profissionais</legend>
 			<div>	
-				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30"/>
+				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30" value='<%= u.getOcupacao() %>'/>
 			</div>
 			<div>
-				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7"/>
+				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7" value='<%= u.getInicioocupacao() %>'/>
 			</div>
-				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30"/>
+				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30" value='<%= u.getEmpregador() %>'/>
 			<div>
-				<label for="renda">Renda Mensal</label><input type="text" name="renda"/>
+				<label for="renda">Renda Mensal</label><input type="text" name="renda" value='<%= u.getRenda() %>'/>
 			</div>
 		</fieldset>
 		<fieldset class="login">
 			<legend>Dados de logon</legend>
 			<div>
-				<label for="username">Nome de usuário</label> <input type="text" id="username" name="username">
+				<label for="username">Nome de usuário</label> <input type="text" id="username" name="username" value='<%= u.getNomeUsuario() %>' >
 			</div>
 			<div>
-				<label for="password">Senha</label> <input type="password" id="password" name="senha">
+				<label for="password">Senha</label> <input type="password" id="password" name="senha" value='<%= u.getSenhaUsuario() %>'>
 			</div>
 			<div>
-				<label for="password2">Redigite a senha</label> <input type="password" id="senha2" name="senha2">
+				<label for="password2">Redigite a senha</label> <input type="password" id="senha2" name="senha2" value='<%= u.getSenhaUsuario() %>'>
 			</div>
 		</fieldset>
 		
-		<div><input type="submit" value="Cadastrar"/></div>
+		<div><input type="submit" value="Salvar"/></div>
 	</form>
+	
+	
+
 </body>
 </html>
-
-
-
-

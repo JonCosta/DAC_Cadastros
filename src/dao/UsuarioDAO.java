@@ -128,7 +128,7 @@ public class UsuarioDAO {
 	
 	public String listarClientes(){
 		
-		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil FROM usuario where isfuncionario = false" ;
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil, idusuario FROM usuario where isfuncionario = false" ;
 		
 		Statement stmt = null ;
         ResultSet rs = null ;
@@ -162,8 +162,11 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(6)+"</th>" +
             		"<th>"+rs.getObject(7)+"</th>" +
             		"<th>"+rs.getObject(8)+"</th>"+
-            		"<th><input type='submit' value='Editar'/>" +
-            		"</th><th><input type='submit' value='Excluir'/>" +
+            		"<th>" +
+            		"<form action='formEditarCliente.jsp' method='post'>" +
+            				"<input name='id' type='hidden' value='"+rs.getInt(9)+"'/><input type='submit' value='Editar'/></form>" +
+            		"</th>" +
+            		"<th><input type='submit' value='Excluir'/>" +
             		"</th></tr>";
             }
         }catch(SQLException e){
@@ -174,10 +177,72 @@ public class UsuarioDAO {
         
 	}//Fecha ListarClientes()
 	
+	public Usuario getCliente(int i){
+		
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, idendereco FROM usuario WHERE idusuario = "+i ;
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        
+        String nomecliente = "", cpf = "",  tipodoc = "", numdoc = "", emissor  = "", dtemiss = "", sexo = "";
+		String data = "", estciv = "", nomepai = "", nomemae = "", email ="", conjuge = "", telefone = "", nacionalidade = "" ;
+		String naturalidade = "", capciv = "", ocupacao = "", inicioocupacao = "", empregador = "" ;
+		String nomeuser = "", senhauser = "" ;
+		int idendereco = 0 ;
+		float renda = 0 ;
+		boolean isfuncionario = false ;
+		
+		Usuario u = new Usuario(idendereco, nomecliente, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, 
+        		email, conjuge, nomepai, nomemae, telefone, nacionalidade, naturalidade, capciv, ocupacao, 
+        		inicioocupacao, empregador, renda, nomeuser, senhauser, isfuncionario) ;
+		
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;            
+            
+            while(rs.next()){
+           
+            	u.setNome(rs.getString(1)) ; 
+            			u.setCpf(rs.getString(2)); 
+            			u.setTipodoc(rs.getString(3)) ;
+            			u.setNumdoc(rs.getString(4));
+            			u.setEmissor(rs.getString(5)) ;
+            			u.setDtEmiss(rs.getString(6)) ;
+            			u.setSexo(rs.getString(7)) ;
+            			u.setDataNasc(rs.getString(8));
+            			u.setEstadocivil(rs.getString(9)) ;
+            			u.setEmail(rs.getString(10));
+            			u.setConjuge(rs.getString(11)) ;
+            			u.setNomepai(rs.getString(12)) ;
+            			u.setNomemae(rs.getString(13)) ;
+            			u.setNumTelefone(rs.getString(14)) ;
+            			u.setNacionalidade(rs.getString(15)) ;
+            			u.setNaturalidade(rs.getString(16)) ;
+            			u.setCapacidadecivil(rs.getString(17)) ;
+            			u.setOcupacao(rs.getString(18)) ;
+            			u.setInicioocupacao(rs.getString(19)) ;
+            			u.setEmpregador(rs.getString(20)) ;
+            			u.setRenda(rs.getFloat(21)) ;
+            			u.setNomeUsuario(rs.getString(22)) ;
+            			u.setSenhaUsuario(rs.getString(23)) ;
+            			u.setFuncionario(false) ;
+            			u.setIdendereco(rs.getInt(24)) ;
+            	
+            }//Fecha while
+            
+            return u ;
+
+        }catch(SQLException e){
+        	System.out.println(e.getMessage());
+        	return null ;
+        }
+        
+	}//Fecha getUsuario
+	
 	public String listarFuncionarios(){
 		
 		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, " +
-				"estadocivil, cargo, departamento FROM usuario where isfuncionario = true" ;
+				"estadocivil, cargo, departamento, idusuario FROM usuario where isfuncionario = true" ;
 		
 		Statement stmt = null ;
         ResultSet rs = null ;
@@ -200,7 +265,10 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(8)+"</th>"+
             		"<th>"+rs.getObject(9)+"</th>"+
             		"<th>"+rs.getObject(10)+"</th>"+
-            		"<th><input type='submit' value='Editar'/>" +
+            		"<th>" +
+            		"<form action='formEditarCliente.jsp' method='post'><input type='submit' value='Editar'/>" +
+            		"<input type='hidden' name='id' value='"+rs.getInt(9)+"'/></form>" +
+            		"</th>" +
             		"</th><th><input type='submit' value='Excluir'/>" +
             		"</th></tr>";
             }
@@ -270,3 +338,4 @@ public class UsuarioDAO {
 	}//Fecha verificarUsuario
 	
 }//Fecha classe
+ 

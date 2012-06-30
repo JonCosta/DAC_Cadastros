@@ -52,6 +52,44 @@ public class EnderecoDAO {
 		
 	}//Fecha cadastrarEnd
 	
+public Endereco getEndereco(int i){
+		
+		String sql = "select cep, cidade, siglauf, temporesidencia, complemento, bairro, logradouro, tipomoradia from endereco where idendereco = "+i ;
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        
+        String cep = "", cidade = "", siglauf = "", tipomoradia = "", bairro = "", logradouro = "", complemento = "";
+        int tempores = 0;
+        
+        Endereco e = new Endereco(cep, cidade, siglauf, bairro, logradouro, complemento, tipomoradia, tempores) ;
+        
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;            
+            
+            while(rs.next()){
+           
+            	e.setCep(rs.getString(1)) ;
+            	e.setCidade(rs.getString(2)) ;
+            	e.setSiglauf(rs.getString(3)) ;
+            	e.setTemporesidencia(rs.getInt(4)) ;
+            	e.setComplemento(rs.getString(5)) ;
+            	e.setBairro(rs.getString(6)) ;
+            	e.setLogradouro(rs.getString(7)) ;
+            	e.setTipoMoradia(rs.getString(8)) ;
+            	
+            }//Fecha while
+            
+            return e ;
+
+        }catch(SQLException e1){
+        	System.out.println(e1.getMessage());
+        	return null ;
+        }
+        
+	}//Fecha getUsuario
+	
 	public int getMaxId(){
 		
 		int id = 0 ;
