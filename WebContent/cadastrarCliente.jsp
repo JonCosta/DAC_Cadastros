@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="dao.UsuarioDAO" %>
+<%@ page import="dao.EnderecoDAO" %>
+<%@ page import="modelo.Endereco" %>
+<%@ page import="modelo.Usuario" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,10 +12,7 @@
 </head>
 <body>
 
-<%@ page import="dao.UsuarioDAO" %>
-<%@ page import="dao.EnderecoDAO" %>
-<%@ page import="modelo.Endereco" %>
-<%@ page import="modelo.Usuario" %>
+
 
 <%
 	

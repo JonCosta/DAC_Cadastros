@@ -199,6 +199,7 @@ public class UsuarioDAO {
         
 	}//Fecha Listar()
 	
+	//autenticar login
 	public boolean verificarUsuario(Usuario u) throws SQLException{
 		
 		 String sql="select * from usuario where nomeUsuario =? and senhaUsuario = ?";
