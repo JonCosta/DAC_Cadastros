@@ -257,11 +257,11 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(6)+"</th>" +
             		"<th>"+rs.getObject(7)+"</th>" +
             		"<th>"+rs.getObject(8)+"</th>"+
-            		"<th>" +
-            		"<form action='formEditarCliente.jsp' method='post'>" +
+            		"<th><form action='formEditarCliente.jsp' method='post'>" +
             				"<input name='id' type='hidden' value='"+rs.getInt(9)+"'/><input type='submit' value='Editar'/></form>" +
             		"</th>" +
-            		"<th><input type='submit' value='Excluir'/>" +
+            		"<th><form action='excluirUsuario.jsp' method='post' onsubmit='return confirma()';>" +
+            				"<input name='id' type='hidden' value='"+rs.getInt(9)+"'/><input type='submit' value='Excluir'/></form>" +
             		"</th></tr>";
             }
         }catch(SQLException e){
@@ -421,11 +421,11 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(8)+"</th>"+
             		"<th>"+rs.getObject(9)+"</th>"+
             		"<th>"+rs.getObject(10)+"</th>"+
-            		"<th>" +
-            		"<form action='formEditarFuncionario.jsp' method='post'>" +
+            		"<th><form action='formEditarFuncionario.jsp' method='post'>" +
     				"<input name='id' type='hidden' value='"+rs.getInt(11)+"'/><input type='submit' value='Editar'/></form>" +
     		"</th>" +
-    		"<th><input type='submit' value='Excluir'/>" +
+    		"<th><form action='excluirUsuario.jsp' method='post' onsubmit='return confirma()';>" +
+    				"<input name='id' type='hidden' value='"+rs.getInt(11)+"'/><input type='submit' value='Excluir'/></form>" +
     		"</th></tr>";
             }
         }catch(SQLException e){
@@ -435,6 +435,28 @@ public class UsuarioDAO {
         return tabela ;
         
 	}//Fecha Listar()
+	
+	public boolean excluirUsuario(int i){
+		
+		String sql = "DELETE FROM usuario WHERE idusuario = ?" ;
+		
+		try{
+            //Prepara a SQL com os valores do objeto Usuario recebido
+			PreparedStatement stmt = connection.prepareStatement(sql) ;
+			
+            stmt.setInt(1, i) ;
+            stmt.execute() ;
+            stmt.close() ;
+            
+            return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
+            
+        }catch(SQLException e1){
+        	return false ; //Retorna falso caso haja algum erro na SQL
+        }catch(Exception e){
+        	return false ; //Retorna erro caso haja algum outro erro
+        }
+		
+	}//Fecha excluirUsuario
 	
 	//autenticar login
 	public boolean verificarUsuario(Usuario u) throws SQLException{

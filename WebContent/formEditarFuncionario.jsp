@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edição de Fucnionário</title>
+<title>Edição de Funcionário</title>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -43,8 +43,8 @@
 	}
 	</script>
 	
-	<h2>Edição de Cliente</h2>
-	<form action="editarCliente.jsp" method='post'>
+	<h2>Edição de Funcionário</h2>
+	<form action="editarFuncionario.jsp" method='post'>
 		<p>Lembre-se de preencher todos os campos:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>

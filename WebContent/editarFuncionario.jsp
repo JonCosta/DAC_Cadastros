@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edição de Cliente</title>
+<title>Edição de Funcionário</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 	
 	String nome = "", cpf = "",  tipodoc = "", numdoc = "", emissor  = "", dtemiss = "", sexo = "";
 	String data = "", estciv = "", nomepai = "", nomemae = "", email ="", conjuge = "", telefone = "", nacionalidade = "" ;
-	String naturalidade = "", capciv = "", ocupacao = "", inicioocupa = "", empregador = "" ;
+	String naturalidade = "", capciv = "", cargo = "", nivelcargo = "", departamento = "" ;
 	String nomeuser = "", senhauser = "", senha2 = "" ;
 	String cep = "", cidade = "", estado = "", bairro = "", complemento = "", tipores = "", logradouro = "" ;
 	int tempores = 0 ;
@@ -48,9 +48,9 @@
 		nacionalidade = request.getParameter("nacionalidade") ;
 		naturalidade = request.getParameter("naturalidade") ;
 		capciv = request.getParameter("capciv") ;
-		ocupacao = request.getParameter("ocupacao") ; 
-		inicioocupa = request.getParameter("inicioocupa") ;
-		empregador = request.getParameter("empregador") ;
+		cargo = request.getParameter("cargo") ; 
+		nivelcargo = request.getParameter("nivelcargo") ;
+		departamento = request.getParameter("departamento") ;
 		renda = Float.parseFloat(request.getParameter("renda") ) ;
 		
 		nomeuser = request.getParameter("username") ;
@@ -76,12 +76,12 @@
 		if(ok1){
 			
 			Usuario u = new Usuario(idend, nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, email, conjuge, nomepai, nomemae, 
-					telefone, nacionalidade, naturalidade, capciv, ocupacao, inicioocupa, empregador, renda, nomeuser, senhauser, false) ;
+					telefone, nacionalidade, naturalidade, capciv, renda, cargo, nivelcargo, departamento, nomeuser, senhauser, true) ;
 			
-			boolean ok2 = dao.editarCliente(u) ;
+			boolean ok2 = dao.editarFuncionario(u) ;
 			
 			if(ok2){
-				%>Edição realizado com sucesso<%
+				%>Edição de funcionário realizado com sucesso<%
 			}else{
 				%>Erro ocorrido durante a edição<%
 			}
@@ -91,7 +91,7 @@
 		
 	}catch(NumberFormatException e1){
 		
-		%> Houve algum erro no preenchimento do formulário, volte e tente novamente <%
+		%> Erro de SQL, verificar código <%
 		
 	}catch(Exception ex){
 		%> Houve algum erro no preenchimento do formulário, volte e tente novamente <%
