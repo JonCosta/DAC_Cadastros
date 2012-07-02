@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edição de Cliente</title>
+<title>Edição de Fucnionário</title>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -29,7 +29,7 @@
 	int i = Integer.parseInt(request.getParameter("id")) ;
 	UsuarioDAO dao = new UsuarioDAO() ;
 	EnderecoDAO edao = new EnderecoDAO() ;
-	Usuario u = dao.getCliente(i) ;
+	Usuario u = dao.getFuncionario(i) ;
 	Endereco e = edao.getEndereco(i) ;
 %>
 	
@@ -166,12 +166,12 @@
 		<fieldset>		
 			<legend>Dados profissionais</legend>
 			<div>	
-				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30" value='<%= u.getOcupacao() %>'/>
+				<label for="cargo">Cargo</label><input type="text" name="cargo" size="30" value='<%= u.getCargo() %>'/>
 			</div>
 			<div>
-				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7" value='<%= u.getInicioocupacao() %>'/>
+				<label for="nivelcargo">Nível do Cargo</label><input type="text" name="nivelcargo" size="7" value='<%= u.getNivelcargo() %>'/>
 			</div>
-				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30" value='<%= u.getEmpregador() %>'/>
+				<label for="departamento">Departamento</label><input type="text" name="departamento" size="30" value='<%= u.getDepartamento() %>'/>
 			<div>
 				<label for="renda">Renda Mensal</label><input type="text" name="renda" value='<%= u.getRenda() %>'/>
 			</div>

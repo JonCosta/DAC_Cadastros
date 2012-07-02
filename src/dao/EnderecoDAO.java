@@ -52,7 +52,39 @@ public class EnderecoDAO {
 		
 	}//Fecha cadastrarEnd
 	
-public Endereco getEndereco(int i){
+	public boolean editarEnd(Endereco e, int i){
+		
+		
+		String sql = "UPDATE endereco SET cep = ?, cidade = ?, siglauf = ?, bairro = ?, complemento = ?, logradouro = ?, tipomoradia = ?, temporesidencia = ? WHERE idendereco = ? " ;
+		
+		try{
+			
+			PreparedStatement stmt = connection.prepareStatement(sql) ;
+			
+			 stmt.setString(1, e.getCep()) ;
+	         stmt.setString(2, e.getCidade()) ;
+	         stmt.setString(3, e.getSiglauf()) ;
+	         stmt.setString(4, e.getBairro()) ;
+	         stmt.setString(5, e.getComplemento()) ;
+	         stmt.setString(6, e.getLogradouro()) ;
+	         stmt.setString(7, e.getTipoMoradia()) ;
+	         stmt.setInt(8, e.getTemporesidencia()) ;
+	         stmt.setInt(9, i) ;
+			
+	         stmt.execute() ;
+	         stmt.close() ;
+	            
+	         return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
+	         
+		}catch(SQLException e1){
+			return false ;
+		}catch(Exception e2){
+			return false ;
+		}
+		
+	}
+	
+	public Endereco getEndereco(int i){
 		
 		String sql = "select cep, cidade, siglauf, temporesidencia, complemento, bairro, logradouro, tipomoradia from endereco where idendereco = "+i ;
 		Statement stmt = null ;

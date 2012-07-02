@@ -12,8 +12,6 @@
 	<h2></h2>
 		<p></p>
 		
-		
-		
 		<table  width="50%">
 			<tr>
 				<td>
@@ -29,7 +27,6 @@
 		</table>
 		
 	<br>
-	<form name="formCRUD" action="">
 
 		<table border="1" width="50%">
 		<tr>
@@ -84,8 +81,7 @@
 			<%=tabela %>
 		</tr>
 		</table>
-		
-	</form>	
+
 </body>
 </html>
 
