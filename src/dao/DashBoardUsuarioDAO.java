@@ -10,7 +10,7 @@ import com.mysql.jdbc.exceptions.* ;
 
 import jdbc.ConnectionFactory;
 import modelo.Usuario ;
-
+import modelo.DashBoardUsuario ;
 
 public class DashBoardUsuarioDAO {
 
@@ -338,7 +338,7 @@ public class DashBoardUsuarioDAO {
 	}//Fecha verificarUsuario
 	
 	//autenticar login
-	public int buscarUsuario(Usuario u) throws SQLException{
+	public int buscarUsuario(DashBoardUsuario u) throws SQLException{
 			
 			String sql="select idusuario,nomeusuario,senhausuario from usuario where nomeusuario =? and senhausuario = ?";
 			boolean achou = false;
@@ -375,8 +375,8 @@ public class DashBoardUsuarioDAO {
 	        try{
 	       	 while(rs.next()){
 	       		 	idusuario = rs.getInt("idusuario");
-	       		 	String login = rs.getString("loginuser") ;
-					String senha = rs.getString("senhauser") ;
+	       		 	String login = rs.getString("nomeusuario") ;
+					String senha = rs.getString("senhausuario") ;
 					
 					if( (u.getNomeUsuario().equals(login))&&(u.getSenhaUsuario().equals(senha))){
 						achou = true ;
