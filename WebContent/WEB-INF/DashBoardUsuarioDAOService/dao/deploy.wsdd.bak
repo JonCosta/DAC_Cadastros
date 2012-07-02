@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DashBoardUsuarioDAOService WSDL service -->
+
+  <service name="DashBoardUsuarioDAO" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://dao"/>
+      <parameter name="wsdlServiceElement" value="DashBoardUsuarioDAOService"/>
+      <parameter name="schemaQualified" value="http://modelo,http://dao"/>
+      <parameter name="wsdlServicePort" value="DashBoardUsuarioDAO"/>
+      <parameter name="className" value="dao.DashBoardUsuarioDAOSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="DashBoardUsuarioDAO"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="buscarUsuario" qname="operNS:buscarUsuario" xmlns:operNS="http://dao" returnQName="retNS:buscarUsuarioReturn" xmlns:retNS="http://dao" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:u" xmlns:pns="http://dao" type="tns:DashBoardUsuario" xmlns:tns="http://modelo"/>
+      </operation>
+      <parameter name="allowedMethods" value="buscarUsuario"/>
+
+      <typeMapping
+        xmlns:ns="http://modelo"
+        qname="ns:DashBoardUsuario"
+        type="java:modelo.DashBoardUsuario"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

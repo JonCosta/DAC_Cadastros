@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dao" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://dao" xmlns:intf="http://dao" xmlns:tns1="http://modelo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://dao" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://modelo"/>
+   <element name="buscarUsuario">
+    <complexType>
+     <sequence>
+      <element name="u" type="tns1:DashBoardUsuario"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buscarUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="buscarUsuarioReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://modelo" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="DashBoardUsuario">
+    <sequence>
+     <element name="nomeUsuario" nillable="true" type="xsd:string"/>
+     <element name="senhaUsuario" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="buscarUsuarioResponse">
+
+      <wsdl:part element="impl:buscarUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarUsuarioRequest">
+
+      <wsdl:part element="impl:buscarUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DashBoardUsuarioDAO">
+
+      <wsdl:operation name="buscarUsuario">
+
+         <wsdl:input message="impl:buscarUsuarioRequest" name="buscarUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buscarUsuarioResponse" name="buscarUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DashBoardUsuarioDAOSoapBinding" type="impl:DashBoardUsuarioDAO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="buscarUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buscarUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buscarUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DashBoardUsuarioDAOService">
+
+      <wsdl:port binding="impl:DashBoardUsuarioDAOSoapBinding" name="DashBoardUsuarioDAO">
+
+         <wsdlsoap:address location="http://localhost:8081/DAC_Cadastros/services/DashBoardUsuarioDAO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
