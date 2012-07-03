@@ -337,65 +337,65 @@ public class DashBoardUsuarioDAO {
 	
 	}//Fecha verificarUsuario
 	
-	//autenticar login
+	//retorna o id do usuario, dados seu login e senha
 	public int buscarUsuario(DashBoardUsuario u) throws SQLException{
-			
-			String sql="select idusuario,nomeusuario,senhausuario from usuario where nomeusuario =? and senhausuario = ?";
-			boolean achou = false;
-			int idusuario = 0;
-	        PreparedStatement pstmt = null;
-	        try{
-	            //criação do 'canal sql'
-	            pstmt = connection.prepareStatement(sql);
-	            // Ajuste de parâmetros pstmt
-	            pstmt.setString(1, u.getNomeUsuario());
-	            pstmt.setString(2, u.getSenhaUsuario());
-	        }
-	        catch(SQLException e){
-	            System.out.println("ERRO: criação do 'canal' statement com mysql");
-	            System.out.println( e.getMessage() ) ; 
-	        }                
-	        
-	        //solicitação da execução da consulta sql
-	        ResultSet rs = null ;
-	        try{
-	            rs = pstmt.executeQuery();
-	        }
-	        catch(MySQLSyntaxErrorException e){
-	            System.out.println("ERRO: sintaxe do SQL.");
-	            System.out.println( e.getMessage() ) ;
-	        }
-	        catch(SQLException e){
-	            System.out.println("ERRO: execução do SELECT em Usuario");
-	            System.out.println( e.getMessage() ) ;
-	        }
-
-
-	        // utilização do resultado
-	        try{
-	       	 while(rs.next()){
-	       		 	idusuario = rs.getInt("idusuario");
-	       		 	String login = rs.getString("nomeusuario") ;
-					String senha = rs.getString("senhausuario") ;
-					
-					if( (u.getNomeUsuario().equals(login))&&(u.getSenhaUsuario().equals(senha))){
-						achou = true ;
-						return idusuario;
-						//return achou ;
-					}//Fecha if
-				}//Fecha while       
-	        }
-	        catch(SQLException e){
-	       	 System.out.println("ERRO: obtenção de dados do ResultSet");
-	       	 System.out.println( e.getMessage() ) ;
-	        }
-	        connection.close();
-	        rs.close();
-	        pstmt.close();
-	        
-	        return idusuario;   
 		
-		}//Fecha verificarUsuario
+		String sql="select idusuario,nomeusuario,senhausuario from usuario where nomeusuario =? and senhausuario = ?";
+		//boolean achou = false;
+		int idusuario = 0;
+        PreparedStatement pstmt = null;
+        try{
+            //criação do 'canal sql'
+            pstmt = connection.prepareStatement(sql);
+            // Ajuste de parâmetros pstmt
+            pstmt.setString(1, u.getNomeUsuario());
+            pstmt.setString(2, u.getSenhaUsuario());
+        }
+        catch(SQLException e){
+            System.out.println("ERRO: criação do 'canal' statement com mysql");
+            System.out.println( e.getMessage() ) ; 
+        }                
+        
+        //solicitação da execução da consulta sql
+        ResultSet rs = null ;
+        try{
+            rs = pstmt.executeQuery();
+        }
+        catch(MySQLSyntaxErrorException e){
+            System.out.println("ERRO: sintaxe do SQL.");
+            System.out.println( e.getMessage() ) ;
+        }
+        catch(SQLException e){
+            System.out.println("ERRO: execução do SELECT em Usuario");
+            System.out.println( e.getMessage() ) ;
+        }
+
+
+        // utilização do resultado
+        try{
+       	 while(rs.next()){
+       		 	idusuario = rs.getInt("idusuario");
+       		 	String login = rs.getString("nomeusuario") ;
+				String senha = rs.getString("senhausuario") ;
+				
+				if( (u.getNomeUsuario().equals(login))&&(u.getSenhaUsuario().equals(senha))){
+					//achou = true ;
+					return idusuario;
+					//return achou ;
+				}//Fecha if
+			}//Fecha while       
+        }
+        catch(SQLException e){
+       	 System.out.println("ERRO: obtenção de dados do ResultSet");
+       	 System.out.println( e.getMessage() ) ;
+        }
+        connection.close();
+        rs.close();
+        pstmt.close();
+        
+        return idusuario;   
+	
+	}//Fecha verificarUsuario
 	
 }//Fecha classe
  

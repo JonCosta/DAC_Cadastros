@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dao" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://dao" xmlns:intf="http://dao" xmlns:tns1="http://modelo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://dao" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://modelo"/>
+   <element name="buscarContaUsuario">
+    <complexType>
+     <sequence>
+      <element name="idusuario" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buscarContaUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="buscarContaUsuarioReturn" type="tns1:Conta"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://modelo" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Conta">
+    <sequence>
+     <element name="idcc" type="xsd:int"/>
+     <element name="limite" type="xsd:float"/>
+     <element name="numero" nillable="true" type="xsd:string"/>
+     <element name="saldo" type="xsd:float"/>
+     <element name="situacao" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="buscarContaUsuarioResponse">
+
+      <wsdl:part element="impl:buscarContaUsuarioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buscarContaUsuarioRequest">
+
+      <wsdl:part element="impl:buscarContaUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DashBoardContaDAO">
+
+      <wsdl:operation name="buscarContaUsuario">
+
+         <wsdl:input message="impl:buscarContaUsuarioRequest" name="buscarContaUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buscarContaUsuarioResponse" name="buscarContaUsuarioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DashBoardContaDAOSoapBinding" type="impl:DashBoardContaDAO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="buscarContaUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buscarContaUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buscarContaUsuarioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DashBoardContaDAOService">
+
+      <wsdl:port binding="impl:DashBoardContaDAOSoapBinding" name="DashBoardContaDAO">
+
+         <wsdlsoap:address location="http://localhost:8081/DAC_Cadastros/services/DashBoardContaDAO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

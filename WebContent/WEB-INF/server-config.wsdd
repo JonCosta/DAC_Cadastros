@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -22,25 +22,39 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="DashBoardContaDAO" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="buscarContaUsuario" qname="ns1:buscarContaUsuario" returnQName="ns1:buscarContaUsuarioReturn" returnType="ns2:Conta" soapAction="" xmlns:ns1="http://dao" xmlns:ns2="http://modelo" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:idusuario" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns3:operation>
+  <ns1:parameter name="allowedMethods" value="buscarContaUsuario"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="DashBoardContaDAO"/>
+  <ns1:parameter name="className" value="dao.DashBoardContaDAO"/>
+  <ns1:parameter name="wsdlServicePort" value="DashBoardContaDAO"/>
+  <ns1:parameter name="schemaQualified" value="http://modelo,http://dao"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://dao"/>
+  <ns1:parameter name="wsdlServiceElement" value="DashBoardContaDAOService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:Conta" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:modelo.Conta" xmlns:ns3="http://modelo"/>
+ </ns1:service>
+ <ns1:service name="DashBoardUsuarioDAO" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="buscarUsuario" qname="ns4:buscarUsuario" returnQName="ns4:buscarUsuarioReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://dao" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:u" type="ns5:DashBoardUsuario" xmlns:ns5="http://modelo"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="buscarUsuario"/>
+  <ns1:parameter name="wsdlPortType" value="DashBoardUsuarioDAO"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://modelo,http://dao"/>
+  <ns1:parameter name="wsdlServicePort" value="DashBoardUsuarioDAO"/>
+  <ns1:parameter name="className" value="dao.DashBoardUsuarioDAO"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://dao"/>
+  <ns1:parameter name="wsdlServiceElement" value="DashBoardUsuarioDAOService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:DashBoardUsuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:modelo.DashBoardUsuario" xmlns:ns6="http://modelo"/>
+ </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
   <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
- </ns1:service>
- <ns1:service name="DashBoardUsuarioDAO" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="buscarUsuario" qname="ns1:buscarUsuario" returnQName="ns1:buscarUsuarioReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://dao" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns3:parameter qname="ns1:u" type="ns2:DashBoardUsuario" xmlns:ns2="http://modelo" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
-  </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="buscarUsuario"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="DashBoardUsuarioDAO"/>
-  <ns1:parameter name="className" value="dao.DashBoardUsuarioDAO"/>
-  <ns1:parameter name="wsdlServicePort" value="DashBoardUsuarioDAO"/>
-  <ns1:parameter name="schemaQualified" value="http://modelo,http://dao"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://dao"/>
-  <ns1:parameter name="wsdlServiceElement" value="DashBoardUsuarioDAOService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:DashBoardUsuario" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:modelo.DashBoardUsuario" xmlns:ns3="http://modelo"/>
  </ns1:service>
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
