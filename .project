@@ -3,6 +3,7 @@
 	<name>DAC_Cadastros</name>
 	<comment></comment>
 	<projects>
+		<project>DAC_Emprestimos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

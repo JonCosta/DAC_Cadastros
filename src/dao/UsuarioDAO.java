@@ -19,7 +19,7 @@ public class UsuarioDAO {
 	public UsuarioDAO(){
 		
 		try{
-			this.connection = new ConnectionFactory().getConnection() ;
+			this.connection = new ConnectionFactory().getConnection1() ;
 		}catch(SQLException e){
 			throw new RuntimeException(e) ;
 		}
@@ -274,7 +274,7 @@ public class UsuarioDAO {
 	
 	public Usuario getCliente(int i){
 		
-		String sql = "SELECT nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, idendereco FROM usuario WHERE idusuario = "+i ;
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, idendereco FROM dac_cadastros.usuario WHERE idusuario = "+i ;
 		Statement stmt = null ;
         ResultSet rs = null ;
         
@@ -333,6 +333,96 @@ public class UsuarioDAO {
         }
         
 	}//Fecha getUsuario
+	
+	public Usuario getCliente(String cpfcliente){
+		
+		String sql = "SELECT nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, idendereco FROM usuario WHERE cpf = "+cpfcliente ;
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        
+        String nomecliente = "", cpf = "",  tipodoc = "", numdoc = "", emissor  = "", dtemiss = "", sexo = "";
+		String data = "", estciv = "", nomepai = "", nomemae = "", email ="", conjuge = "", telefone = "", nacionalidade = "" ;
+		String naturalidade = "", capciv = "", ocupacao = "", inicioocupacao = "", empregador = "" ;
+		String nomeuser = "", senhauser = "" ;
+		int idendereco = 0, idusuario = 0 ;
+		float renda = 0 ;
+		boolean isfuncionario = false ;
+		
+		Usuario u = new Usuario(idusuario, idendereco, nomecliente, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, 
+        		email, conjuge, nomepai, nomemae, telefone, nacionalidade, naturalidade, capciv, ocupacao, 
+        		inicioocupacao, empregador, renda, nomeuser, senhauser, isfuncionario) ;
+		
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;            
+            
+            while(rs.next()){
+           
+            	u.setNome(rs.getString(1)) ; 
+            	u.setCpf(rs.getString(2)); 
+            	u.setTipodoc(rs.getString(3)) ;
+            	u.setNumdoc(rs.getString(4));
+            	u.setEmissor(rs.getString(5)) ;
+            	u.setDtEmiss(rs.getString(6)) ;
+            	u.setSexo(rs.getString(7)) ;
+            	u.setDataNasc(rs.getString(8));
+            	u.setEstadocivil(rs.getString(9)) ;
+            	u.setEmail(rs.getString(10));
+            	u.setConjuge(rs.getString(11)) ;
+            	u.setNomepai(rs.getString(12)) ;
+            	u.setNomemae(rs.getString(13)) ;
+            	u.setNumTelefone(rs.getString(14)) ;
+            	u.setNacionalidade(rs.getString(15)) ;
+            	u.setNaturalidade(rs.getString(16)) ;
+            	u.setCapacidadecivil(rs.getString(17)) ;
+            	u.setOcupacao(rs.getString(18)) ;
+            	u.setInicioocupacao(rs.getString(19)) ;
+            	u.setEmpregador(rs.getString(20)) ;
+            	u.setRenda(rs.getFloat(21)) ;
+            	u.setNomeUsuario(rs.getString(22)) ;
+            	u.setSenhaUsuario(rs.getString(23)) ;
+            	u.setFuncionario(false) ;
+            	u.setIdendereco(rs.getInt(24)) ;
+            	
+            }//Fecha while
+            
+            return u ;
+
+        }catch(SQLException e){
+        	System.out.println(e.getMessage());
+        	return null ;
+        }
+		
+	}//fecha get por CPF
+	
+	public String getNomeCliente(int i){
+		
+		String sql = "SELECT nome FROM usuario WHERE idusuario = "+i ;
+		Statement stmt = null ;
+        ResultSet rs = null ;
+        
+        String nome = "" ;
+		
+        try{
+        	
+        	stmt = connection.createStatement() ;
+            rs = stmt.executeQuery(sql) ;            
+            
+            while(rs.next()){
+           
+            	nome = rs.getString(1) ; 
+            	
+            }//Fecha while
+            
+            return nome ;
+
+        }catch(SQLException e){
+        	System.out.println(e.getMessage());
+        	return null ;
+        }
+		
+	}
 	
 	public Usuario getFuncionario(int i){
 		

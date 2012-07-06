@@ -19,7 +19,7 @@ public class DashBoardUsuarioDAO {
 	public DashBoardUsuarioDAO(){
 		
 		try{
-			this.connection = new ConnectionFactory().getConnection() ;
+			this.connection = new ConnectionFactory().getConnection1() ;
 		}catch(SQLException e){
 			throw new RuntimeException(e) ;
 		}

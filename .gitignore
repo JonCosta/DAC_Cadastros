@@ -6,3 +6,5 @@ build/classes/dao/UsuarioDAO.class
 .classpath
 .settings/org.eclipse.jdt.core.prefs
 build/classes/dao/UsuarioDAO.class
+build/classes/dao/DashBoardContaDAO.class
+build/classes/dao/ContaDAO.class
