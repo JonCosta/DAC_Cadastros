@@ -1,22 +1,11 @@
 @CHARSET "ISO-8859-1";
-* {margin:0; padding:0;}
 
-html {
-	font: 90%/1.3 arial,sans-serif;
-	padding:1em;
-	background:#fafafa;
-}
 form {
 	background:#fff;
 	padding:1em;
 	border:1px solid #eee;
 }
-.login {
-	background:url(../gfx/user.gif) no-repeat 95% 1em;
-}
-.contact {
-	background:url(../gfx/email2.gif) no-repeat 95% 1em;
-}
+
 fieldset div {
 	margin:0.3em 0;
 	clear:both;
