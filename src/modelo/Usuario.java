@@ -47,6 +47,39 @@ public class Usuario {
 		
 	}//Fecha usuario
 	
+	public Usuario(int idusuario, int idendereco, String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
+			String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
+			String capacidadecivil, String ocupacao, String inicioocuapcao, String empregador, float renda, String nomeUsuario, String senhaUsuario, 
+			boolean isFuncionario ){
+		this.idcliente = idusuario ;
+		this.idendereco = idendereco;
+		this.nome = nome ;
+		this.cpf = cpf ;
+		this.tipodoc = tipodoc ;
+		this.numdoc = numdoc ;
+		this.emissor = emissor ;
+		this.dtEmiss = dtEmiss ;
+		this.sexo = sexo ;
+		this.dataNasc = dataNasc ;
+		this.estadocivil = estadocivil ;
+		this.email = email ;
+		this.conjuge = conjuge ;
+		this.nomepai = nomepai ;
+		this.nomemae = nomemae ;
+		this.numTelefone = telefone ;
+		this.nacionalidade = nacionalidade ;
+		this.naturalidade = naturalidade ;
+		this.capacidadecivil = capacidadecivil ;
+		this.ocupacao = ocupacao ;
+		this.inicioocupacao = inicioocuapcao ;
+		this.empregador = empregador ;
+		this.renda = renda ;
+		this.nomeUsuario = nomeUsuario ;
+		this.senhaUsuario = senhaUsuario ;
+		this.isFuncionario = isFuncionario ;
+		
+	}//Fecha usuario
+	
 	public Usuario(int idendereco, String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
 			String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
 			String capacidadecivil, float renda, String cargo, String nivelcargo, String departamento, String nomeUsuario, String senhaUsuario, 

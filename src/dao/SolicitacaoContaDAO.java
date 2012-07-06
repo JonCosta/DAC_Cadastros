@@ -14,7 +14,7 @@ public class SolicitacaoContaDAO {
 	
 	public SolicitacaoContaDAO() {
 		try{
-			this.connection = new ConnectionFactory().getConnection() ;
+			this.connection = new ConnectionFactory().getConnection1() ;
 		}catch(SQLException e){
 			throw new RuntimeException(e) ;
 		}
@@ -46,7 +46,7 @@ public class SolicitacaoContaDAO {
 	
 	public boolean editarSolicitacao(SolicitacaoConta sc){
 
-		String sql = "UPDATE solicitacao SET idcliente = ? , situacao = ?" ;
+		String sql = "UPDATE solicitacao SET idcliente = ? , situacao = ? where cod = ?" ;
 		
 		try{
 			
@@ -54,6 +54,7 @@ public class SolicitacaoContaDAO {
 			
 			 stmt.setInt(1, sc.getIdcliente()) ;
 	         stmt.setString(2, sc.getSituacao()) ;
+	         stmt.setInt(3, sc.getCod()) ;
 			
 	         stmt.execute() ;
 	         stmt.close() ;
