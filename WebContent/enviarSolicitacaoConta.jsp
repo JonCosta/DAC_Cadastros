@@ -24,8 +24,7 @@
 	float renda = 0;
 	int tempores = 0 ;
 	
-	
-	try {
+
 		
 		//Declaração das variáveis
 		String primeironome = request.getParameter("primeironome") ;
@@ -94,9 +93,7 @@
 		empregador = request.getParameter("empregador") ;
 		System.out.println("empregador ="+empregador);
 		
-		String aux=request.getParameter("renda");
-		//renda = Float.parseFloat(request.getParameter("renda") ) ;
-		renda = Float.parseFloat(aux);
+		renda = Float.parseFloat(request.getParameter("renda") ) ;
 		
 		System.out.println("renda ="+renda);
 		
@@ -108,14 +105,13 @@
 		//Seta situação do cliente em cadastro como não ativo, portanto, possui uma solicitação vinculada
 		String situacao = "0";
 		
+		//campos de endereço
 		cep = request.getParameter("cep") ;
 		estado = request.getParameter("estado") ;
 		cidade = request.getParameter("cidade") ;
 		bairro = request.getParameter("bairro") ;
 		complemento = request.getParameter("complemento") ;
-		
-		String aux2 = request.getParameter("tempores");
-		tempores = Integer.parseInt(aux2);
+		tempores = Integer.parseInt(request.getParameter("tempores"));
 		tipores = request.getParameter("tipores") ;
 		logradouro = request.getParameter("logradouro") ;
 			
@@ -150,9 +146,7 @@
 		else {
 			%>Erro ao cadastrar endereco<%
 		}
-	}catch(NumberFormatException e1){
-		e1.printStackTrace() ;
-}
+	
 
 	
 

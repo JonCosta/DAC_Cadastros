@@ -21,7 +21,7 @@
 	}
 	</script>
 	
-	<form action="cadastrarCliente.jsp" method='post'>
+	<form action="enviarSolicitacaoConta.jsp" method="post">
     <div class="form_settings">
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
@@ -112,7 +112,7 @@
 					<option value="outro">Outro...</option>
 				</select></p>
 			
-		  <p><span>Tempo de Residencia</span> <input type="text" id="tempores" name="tempores"></p>
+		  <p><span>Tempo de Residencia</span> <input type="text" id="tempores" name="tempores" ></p>
 			
 	  </fieldset>
 		<fieldset>		
@@ -123,7 +123,7 @@
 			
 		  <p><span>Empregador</span><input type="text" name="empregador" size="30"/></p>
 			
-		  <p><span>Renda Mensal</span><input type="text" name="renda"/></p>
+		  <p><span>Renda Mensal</span><input type="text" name="renda" /></p>
 		</fieldset>	
 
 		
