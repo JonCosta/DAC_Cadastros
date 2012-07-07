@@ -8,6 +8,7 @@
 	<title>Cadastro de funcionário</title>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script> 
 	<meta name="author" content="Assemblesoft">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
@@ -30,7 +31,7 @@
 		</script>
 
 	<h2>Cadastro de Novo Funcionário</h2>
-	<form action="cadastraFuncionario.jsp" method='post'>
+	<form action="cadastraFuncionario.jsp" method='post' name='form' >
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
@@ -41,7 +42,8 @@
 				<label for="lastname">Último nome</label> <input type="text" id="lastname" name="ultimonome">
 			</div>
 			<div>
-				<label for="cpf">CPF</label> <input type="text" id="cpf" name="cpf">
+				<label for="cpf">CPF</label> 
+				<input type="text" id="cpf" name="cpf" onChange="ValidarCPF(form.cpf);" onKeyPress="MascaraCPF(form.cpf);" maxlength="11">
 			</div>
 
 			<div>
@@ -59,7 +61,8 @@
 				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" >
 			</div>
 			<div>
-				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" >
+				<label for="dtemissao">Data Emissão</label>
+				<input type="text" id="dtemissao" name="dtemissao" maxlength='10' onChange="ValidarData(form.dtemissao);" onKeyPress="MascaraData(form.dtemissao);" >
 			</div>
 		
 			<div class="radio">
@@ -74,7 +77,8 @@
 				</fieldset>
 			</div>
 			<div>
-				<label for="data">Data de Nascimento</label> <input type="text" id="dtnascimento" name="dtnascimento" class="dtnascimento">
+				<label for="data">Data de Nascimento</label> 
+				<input type="text" id="dtnascimento" name="dtnascimento" class="dtnascimento" maxlength='10' onChange="ValidarData(form.dtnascimento);" onKeyPress="MascaraData(form.dtnascimento);">
 			</div>
 			<div>
 				<label for="email">Email</label> <input type="text" id="email" name="email" class="email">
@@ -92,7 +96,8 @@
 				<label for="conjuge">Conjuge</label> <input type="text" name="conjuge"/>
 			</div>
 			<div>	
-				<label for="telefone">Telefone</label><input type="text" name="telefone"/>
+				<label for="telefone">Telefone</label>
+				<input type="text" name="telefone" onKeyPress="MascaraTelefone(form.telefone);" maxlength="14"  onChange="ValidaTelefone(form.telefone);" />
 			</div>
 			<div>	
 				<label for="nacionalidade">Nacionalidade</label><input type="text" name="nacionalidade"/>
@@ -119,7 +124,8 @@
 		<fieldset class="login">
 			<legend>Dados de Endereço</legend>
 			<div>
-				<label for="cep">CEP</label> <input type="text" id="cep" name="cep">
+				<label for="cep">CEP</label> 
+				<input type="text" id="cep" name="cep" onKeyPress="MascaraCep(form.cep);" maxlength="10" onChange="ValidaCep(form.cep)">
 			</div>
 			<div>	
 				<label for="estado">Estado</label>
@@ -147,7 +153,7 @@
 				</select>
 			</div>
 			<div>
-				<label for="tempores">Tempo de Residência</label> <input type="text" id="tempores" name="tempores">
+				<label for="tempores">Tempo de Residência(Anos)</label> <input type="text" id="tempores" name="tempores">
 			</div>
 		</fieldset>
 		<fieldset>		

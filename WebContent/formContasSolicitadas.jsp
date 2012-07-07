@@ -5,6 +5,7 @@
 <head>
 	<title>Novas solicitações de abertura de conta</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script>
 
 </head>
 <body>

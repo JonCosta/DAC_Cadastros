@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" id="theme" href="css/dropdown.css">
 	
 	
-
+	<script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script>
 	<script type="text/javascript" src="js/helpers.js"></script>
 	<script type="text/javascript" src="js/date.js"></script>
 	<script type="text/javascript" src="js/form.js"></script>
@@ -32,7 +32,7 @@
 	}
 	</script>
 	<p><font color="red"><%= msgOut %></font></p>
-	<form action="enviarSolicitacaoConta.jsp" method="post">
+	<form action="enviarSolicitacaoConta.jsp" method="post" name='form'>
     <div class="form_settings">
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
@@ -42,7 +42,8 @@
 			
 				<p><span>Ultimo nome :</span> <input type="text" id="ultimonome" name="ultimonome"/></p>
 			
-				<p><span>CPF :</span> <input type="text" id="cpf" name="cpf"/></p>
+				<p><span>CPF :</span> 
+				<input type="text" id="cpf" name="cpf" onChange="ValidarCPF(form.cpf);" onKeyPress="MascaraCPF(form.cpf);" maxlength="11"/></p>
 			
 				<p><span>Tipo doc :</span>
 				<select name="tipodoc" >
@@ -56,7 +57,8 @@
 			
 				<p><span>Emissor :</span><input type="text" id="emissor" name="emissor" size="7" /></p>
 			
-				<p><span>Data Emissao :</span><input type="text" id="dtemissao" name="dtemissao" /></p>
+				<p><span>Data Emissao :</span>
+				<input type="text" id="dtemissao" name="dtemissao" maxlength='10' onChange="ValidarData(form.dtemissao);" onKeyPress="MascaraData(form.dtemissao);" /></p>
 			
 		<p>
         <span>Sexo :</span>
@@ -67,7 +69,8 @@
 				
         </p>
 			
-				<p><span>Data de Nascimento :</span><input type="text" id="dtnascimento" name="dtnascimento" /></p>
+			<p><span>Data de Nascimento :</span>
+			<input type="text" id="dtnascimento" name="dtnascimento" maxlength='10' onChange="ValidarData(form.dtnascimento);" onKeyPress="MascaraData(form.dtnascimento);" /></p>
 			 <p><span>Email :</span><input type="text" id="email" name="email" class="email"></p>
 			
 		  <p><span>Estado Civil</span>
@@ -80,7 +83,8 @@
 		  </p>
 		  <p><span>Conjuge</span> <input type="text" name="conjuge"/>
 		  </p>
-		  <p><span>Telefone</span><input type="text" name="telefone"/>
+		  <p><span>Telefone</span>
+		  <input type="text" name="telefone" onKeyPress="MascaraTelefone(form.telefone);" maxlength="14"  onChange="ValidaTelefone(form.telefone);"/>
 		  </p>
 		  <p><span>Nacionalidade</span><input type="text" name="nacionalidade"/>
 		  </p>
@@ -100,9 +104,10 @@
 		  </p>
 		</fieldset>
 		<fieldset class="login">
-			<legend>Dados de Endereï¿½o</legend>
+			<legend>Dados de Endereço</legend>
 			
-		  <p><span>CEP</span> <input type="text" id="cep" name="cep">
+		  <p><span>CEP</span> 
+		  <input type="text" id="cep" name="cep" onKeyPress="MascaraCep(form.cep);" maxlength="10" onChange="ValidaCep(form.cep)">
 		  </p>
 		  <p><span>Estado</span>
 				<select id="estado" name="estado"></select></p>
@@ -123,7 +128,7 @@
 					<option value="outro">Outro...</option>
 				</select></p>
 			
-		  <p><span>Tempo de Residencia</span> <input type="text" id="tempores" name="tempores" ></p>
+		  <p><span>Tempo de Residencia(Anos)</span> <input type="text" id="tempores" name="tempores" ></p>
 			
 	  </fieldset>
 		<fieldset>		

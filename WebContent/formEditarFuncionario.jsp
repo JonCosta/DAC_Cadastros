@@ -13,7 +13,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" type="text/css" href="css/screen.css">
 	<link rel="stylesheet" type="text/css" href="css/dropdown.css">
-
+	<script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script>
 	<script type="text/javascript" src="js/helpers.js"></script>
 	<script type="text/javascript" src="js/date.js"></script>
 	<script type="text/javascript" src="js/form.js"></script>
@@ -44,7 +44,7 @@
 	</script>
 	
 	<h2>Edição de Funcionário</h2>
-	<form action="editarFuncionario.jsp" method='post'>
+	<form action="editarFuncionario.jsp" method='post' name='form'>
 		<p>Lembre-se de preencher todos os campos:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
@@ -52,7 +52,8 @@
 				<label for="firstname">Nome</label> <input type="text" id="firstname" name="nome" value='<%= u.getNome() %>' >
 			</div>
 			<div>
-				<label for="cpf">CPF</label> <input type="text" id="cpf" name="cpf" value='<%= u.getCpf() %>'>
+				<label for="cpf">CPF</label> 
+				<input type="text" id="cpf" name="cpf" value='<%= u.getCpf() %>' onChange="ValidarCPF(form.cpf);" onKeyPress="MascaraCPF(form.cpf);" maxlength="11">
 			</div>
 
 			<div>
@@ -70,7 +71,8 @@
 				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" value='<%= u.getEmissor() %>' >
 			</div>
 			<div>
-				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" value='<%= u.getDtEmiss() %>' >
+				<label for="dtemissao">Data Emissão</label>
+				<input type="text" id="dtemissao" name="dtemissao" value='<%= u.getDtEmiss() %>' maxlength='10' onChange="ValidarData(form.dtemissao);" onKeyPress="MascaraData(form.dtemissao);" >
 			</div>
 		
 			<div class="radio">
@@ -85,7 +87,8 @@
 				</fieldset>
 			</div>
 			<div>
-				<label for="data">Data de Nascimento</label><input type="text" id="dtnascimento" name="dtnascimento" value='<%= u.getDataNasc() %>'>
+				<label for="data">Data de Nascimento</label>
+				<input type="text" id="dtnascimento" name="dtnascimento" value='<%= u.getDataNasc() %>' maxlength='10' onChange="ValidarData(form.dtnascimento);" onKeyPress="MascaraData(form.dtnascimento);">
 			</div>
 			<div>
 				<label for="email">Email</label> <input type="text" id="email" name="email" class="email" value='<%= u.getEmail() %>'>
@@ -103,7 +106,8 @@
 				<label for="conjuge">Conjuge</label> <input type="text" name="conjuge" value='<%= u.getConjuge() %>'/>
 			</div>
 			<div>	
-				<label for="telefone">Telefone</label><input type="text" name="telefone" value='<%= u.getNumTelefone() %>'/>
+				<label for="telefone">Telefone</label>
+				<input type="text" name="telefone" value='<%= u.getNumTelefone() %>' onKeyPress="MascaraTelefone(form.telefone);" maxlength="14"  onChange="ValidaTelefone(form.telefone);"/>
 			</div>
 			<div>	
 				<label for="nacionalidade">Nacionalidade</label><input type="text" name="nacionalidade" value='<%= u.getNacionalidade() %>'/>
@@ -130,7 +134,8 @@
 		<fieldset class="login">
 			<legend>Dados de Endereço</legend>
 			<div>
-				<label for="cep">CEP</label> <input type="text" id="cep" name="cep" value='<%= e.getCep() %>'>
+				<label for="cep">CEP</label> 
+				<input type="text" id="cep" name="cep" value='<%= e.getCep() %>' onKeyPress="MascaraCep(form.cep);" maxlength="10" onChange="ValidaCep(form.cep)">
 			</div>
 			<div>
 				<label for="estado">Estado</label>
@@ -160,7 +165,7 @@
 				</select>
 			</div>
 			<div>
-				<label for="tempores">Tempo de Residência</label> <input type="text" id="tempores" name="tempores" value='<%= e.getTemporesidencia() %>'>
+				<label for="tempores">Tempo de Residência(Anos)</label> <input type="text" id="tempores" name="tempores" value='<%= e.getTemporesidencia() %>'>
 			</div>
 		</fieldset>
 		<fieldset>		
