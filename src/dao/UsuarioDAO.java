@@ -553,7 +553,7 @@ public class UsuarioDAO {
 	//autenticar login
 	public boolean verificarUsuario(Usuario u) throws SQLException{
 		
-		 String sql="select * from usuario where nomeUsuario =? and senhaUsuario = ?";
+		 String sql="select * from usuario where nomeusuario =? and senhausuario = ?";
 		 boolean achou = false;
         PreparedStatement pstmt = null;
         try{
@@ -586,8 +586,8 @@ public class UsuarioDAO {
         // utilização do resultado
         try{
        	 while(rs.next()){
-       		String login = rs.getString("loginUser") ;
-				String senha = rs.getString("senhaUser") ;
+       		String login = rs.getString("nomeusuario") ;
+				String senha = rs.getString("senhausuario") ;
 				
 				if( (u.getNomeUsuario().equals(login))&&(u.getSenhaUsuario().equals(senha))){
 					achou = true ;

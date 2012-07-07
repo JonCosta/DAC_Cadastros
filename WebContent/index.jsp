@@ -1,3 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%  
+	//Processamento da msg de erro ao tentar efetuar login
+	String msg = request.getParameter("msg");
+	String msgOut ="";
+	String msgOutSucesso ="";
+	if (msg!=null){
+		//Login do usuario
+		if(msg.equals("1")){
+			msgOut="Login e/ou senha inválidos!";
+		//login administrador
+		} else if (msg.equals("2")){
+			msgOut = "Login e/ou senha inválidos!";
+		} else {
+			msgOutSucesso = "Login efetuado com sucesso!";
+		}
+}%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,17 +40,25 @@ body,td,th {
           <h1><a href="index.html">Banco<span class="logo_colour">TADS</span></a></h1>
           <h2>2012</h2>
         </div>
-        <form method="post" action="#" id="search">
+        
+        
+        <form method="post" action="login.jsp" id="search">
           <table>
           <tr align="center"><td colspan="4" >Já é cliente?! Acesse já sua conta!</td></tr>
           <tr><td>
-				<label>Conta corrente n°:</label></td>
-				<td><input type="text" name="numconta" id="numconta" size="7"/></td>
+				<label>Login:</label></td>
+				<td><input type="text" name="loginusuario" id="loginusuario" size="7"/></td>
 				<td><label>Senha:</label><input type="password" name="senhausuario" id="senhausuario" size="7"/></td>
 		  <td><input type="submit" value="Ok"></td>
           </tr>
+          <tr>
+          <td><font color="red"><%= msgOut %></font></td>
+          </tr>
           </table>
-</form>
+          
+		</form>
+		<font color="green"><%= msgOutSucesso %></font>
+		
       </div>
       <nav><ul class="sf-menu" id="nav">
 <li class="current"><a href="index.html">Home</a></li>

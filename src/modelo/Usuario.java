@@ -14,6 +14,14 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
+	//construtor de login usuario
+	public Usuario(String nomeUsuario, String senhaUsuario) {
+		super();
+		this.nomeUsuario = nomeUsuario;
+		this.senhaUsuario = senhaUsuario;
+	}
+	
 	//construtor com 'situacao'
 	public Usuario(int idendereco, String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
 			String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
@@ -49,6 +57,8 @@ public class Usuario {
 		
 	}//Fecha usuario
 	
+	
+
 	//construtor sem 'situacao'
 		public Usuario(int idendereco, String nome, String cpf, String tipodoc, String numdoc, String emissor, String dtEmiss, String sexo, String dataNasc,
 				String estadocivil, String email, String conjuge, String nomepai, String nomemae, String telefone, String nacionalidade, String naturalidade, 
