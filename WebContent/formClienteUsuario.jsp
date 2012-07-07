@@ -20,15 +20,16 @@
 	  });
 	}
 	</script>
+	
 	<form action="cadastrarCliente.jsp" method='post'>
     <div class="form_settings">
 		<p>Por favor, preencha os campos a seguir:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
 			
-				<p><span>Primeiro nome :</span> <input type="text" id="firstname" name="primeironome" /></p>
+				<p><span>Primeiro nome :</span> <input type="text" id="primeironome" name="primeironome" /></p>
 			
-				<p><span>Ultimo nome :</span> <input type="text" id="lastname" name="ultimonome"/></p>
+				<p><span>Ultimo nome :</span> <input type="text" id="ultimonome" name="ultimonome"/></p>
 			
 				<p><span>CPF :</span> <input type="text" id="cpf" name="cpf"/></p>
 			
@@ -60,10 +61,10 @@
 			
 		  <p><span>Estado Civil</span>
 				<select name="estciv">
-					<option value="Solteiro">Solteiro</option>
-					<option value="Casado">Casado</option>
-					<option value="Divorciado">Divorciado</option>
-					<option value="Vi�vo">Vi�vo</option>
+					<option value="solteiro">Solteiro</option>
+					<option value="casado">Casado</option>
+					<option value="divorciado">Divorciado</option>
+					<option value="viuvo">Vi�vo</option>
 				</select>
 		  </p>
 		  <p><span>Conjuge</span> <input type="text" name="conjuge"/>
@@ -84,7 +85,7 @@
 		  </p>
 		  <p><span>Nome do pai</span><input type="text" name="nomepai"/>
 		  </p>
-		  <p><span>Nome da m�e</span><input type="text" name="nomemae"/>
+		  <p><span>Nome da mae</span><input type="text" name="nomemae"/>
 		  </p>
 		</fieldset>
 		<fieldset class="login">
@@ -104,27 +105,28 @@
 			
 				<p><span>Logradouro</span> <input type="text" id="logradouro" name="logradouro"></p>
 			
-		  <p><span>Tipo de Resid�ncia</span>
+		  <p><span>Tipo de Residencia</span>
 				<select name="tipores">
-					<option value="Resid�ncia">Resid�ncia</option>
-					<option value="Apartamento">Apartamento</option>
-					<option value="Outro">Outro...</option>
+					<option value="residencia">Residencia</option>
+					<option value="apartamento">Apartamento</option>
+					<option value="outro">Outro...</option>
 				</select></p>
 			
-		  <p><span>Tempo de Resid�ncia</span> <input type="text" id="tempores" name="tempores"></p>
+		  <p><span>Tempo de Residencia</span> <input type="text" id="tempores" name="tempores"></p>
 			
 	  </fieldset>
 		<fieldset>		
 				<legend>Dados profissionais</legend>
 		  <p><span>Ocupacao</span><input type="text" name="ocupacao" size="30"/></p>
 			
-		  <p><span>In�cio da Ocupa��o</span><input type="text" name="inicioocupa" size="7"/></p>
+		  <p><span>Inicio da Ocupacao</span><input type="text" name="inicioocupa" size="7"/></p>
 			
 		  <p><span>Empregador</span><input type="text" name="empregador" size="30"/></p>
 			
 		  <p><span>Renda Mensal</span><input type="text" name="renda"/></p>
-			
-	  </fieldset>
+		</fieldset>	
+
+		
 
 		
 		<p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="name" value="Enviar"></p>

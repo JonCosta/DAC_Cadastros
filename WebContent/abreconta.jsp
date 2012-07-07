@@ -56,29 +56,29 @@ body,td,th {
 </form>
       </div>
       <nav><ul class="sf-menu" id="nav">
-<li ><a href="index.html">Home</a></li>
-          <li class="current"><a href="abreconta.html">Abrir Conta</a></li>
-          <li><a href="page.html">Conta e Servi&ccedil;os</a><ul>
-<li><a href="#">Saldo</a></li>
+<li class="current"><a href="index.html">Home</a></li>
+          <li><a href="abreconta.jsp">Abrir Conta</a></li>
+          <li><a href="#">Conta e Servi&ccedil;os</a><ul>
+<li><a href="formSaldo.jsp">Saldo</a></li>
               <li>
-<a href="#">Transferências</a>
+<a href="formTransferencia.jsp">Transferências</a>
                 
 </li>
 
             </ul></li>
-          <li><a href="another_page.html">Empr&eacute;stimos</a></li>
+          <li><a href="listarEmprestimos.jsp">Empr&eacute;stimos</a></li>
           <li>
-<a href="#">Pagamentos	</a>
+<a href="listarPagamentos.jsp">Pagamentos	</a>
             
 </li>
-          <li><a href="contact.php">Sobre</a></li>
+          <li><a href="sobre.php">Sobre</a></li>
         </ul></nav></header><div id="site_content">
       <div id="sidebar_container">
         <div class="sidebar">
           <h3>Área restrita</h3>
           <div class="sidebar_item">
 
-            <form>
+            <form action="#" method="post">
             <table><tr>
 				<td>Login:</td><td><input type="text" name="loginfunc" id="loginfunc"/></td></tr>
 				<tr><td>Senha:</td><td><input type="password" name="senhafunc" id="senhafunc"/></td><tr>
@@ -88,6 +88,7 @@ body,td,th {
 
             </table>  
 			</form> 
+			
           </div>
           <div class="sidebar_base"></div>
         </div>
@@ -107,12 +108,9 @@ body,td,th {
       <div class="content">
         <h1>Solicita&ccedil;&atilde;o de abertura de conta</h1>
         <div class="content_item">
- 
-          
-         
-         
          
          <jsp:include page="formClienteUsuario.jsp" flush="true"/>
+         
 		</div>
       </div>
         </div>

@@ -32,7 +32,7 @@ public class UsuarioDAO {
 		
 		//Forma a SQL para inserção no BD
 		
-		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, isfuncionario, idendereco) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+		String sql = "INSERT INTO usuario (nome, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, datanasc, estadocivil, email, conjuge, nomepai, nomemae, numtelefone, nacionalidade, naturalidade, capacidadecivil, ocupacao, inicioocupacao, empregador, renda, nomeusuario, senhausuario, isfuncionario, idendereco, situacao) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 		
 		try{
             //Prepara a SQL com os valores do objeto Usuario recebido
@@ -63,6 +63,7 @@ public class UsuarioDAO {
             stmt.setString(23, u.getSenhaUsuario()) ;
             stmt.setBoolean(24, false) ;
             stmt.setInt(25, u.getIdendereco()) ;
+            stmt.setString(26, u.getSituacao()) ;
             
             stmt.execute() ;
             stmt.close() ;
@@ -285,6 +286,7 @@ public class UsuarioDAO {
 		int idendereco = 0 ;
 		float renda = 0 ;
 		boolean isfuncionario = false ;
+		
 		
 		Usuario u = new Usuario(idendereco, nomecliente, cpf, tipodoc, numdoc, emissor, dtemiss, sexo, data, estciv, 
         		email, conjuge, nomepai, nomemae, telefone, nacionalidade, naturalidade, capciv, ocupacao, 
