@@ -107,7 +107,7 @@ body,td,th {
       <div class="content">
         <h1>Cadastro de FUncionários</h1>
         <div class="content_item">
-          		<table  width="50%">
+          		<table>
 			<tr>
 				<td>
 					<form action="">
@@ -123,7 +123,7 @@ body,td,th {
 		
 	<br>
 
-		<table border="1" width="50%">
+		<table border="1">
 		
 		
 		<%@ page import="dao.UsuarioDAO" %>
