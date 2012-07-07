@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%  
+	//Processamento da msg de erro ao tentar efetuar login
+	String msg = request.getParameter("msg");
+	String msgOut ="";
+	if (msg!=null){
+		if(msg.equals("1")){
+			msgOut="Solicitação de conta enviada com sucesso!";
+		} else if (msg.equals("2")){
+			msgOut = "Não possível enviar sua solicitação. Por favor tente mais tarde!";
+		}
+}%>
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 <link rel="stylesheet" type="text/css" id="theme" href="css/style.css">
@@ -20,7 +31,7 @@
 	  });
 	}
 	</script>
-	
+	<p><font color="red"><%= msgOut %></font></p>
 	<form action="enviarSolicitacaoConta.jsp" method="post">
     <div class="form_settings">
 		<p>Por favor, preencha os campos a seguir:</p>

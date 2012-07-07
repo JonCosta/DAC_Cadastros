@@ -28,74 +28,74 @@
 		
 		//Declaração das variáveis
 		String primeironome = request.getParameter("primeironome") ;
-		System.out.println("Primeiro nome="+primeironome);
+		//System.out.println("Primeiro nome="+primeironome);
 		
 		String ultimonome = request.getParameter ("ultimonome") ;
-		System.out.println("segundo nome="+ultimonome);
+		//System.out.println("segundo nome="+ultimonome);
 		
 		nome = primeironome + " " + ultimonome ;
-		System.out.println("nome="+nome);
+		//System.out.println("nome="+nome);
 		
 		cpf = request.getParameter("cpf") ;
-		System.out.println("cpf="+cpf);
+		//System.out.println("cpf="+cpf);
 		
 		tipodoc = request.getParameter("tipodoc") ;
-		System.out.println("tipo doc="+tipodoc);
+		//System.out.println("tipo doc="+tipodoc);
 		
 		numdoc = request.getParameter("numdoc") ;
-		System.out.println("Numdoc="+numdoc);
+		//System.out.println("Numdoc="+numdoc);
 		
 		emissor = request.getParameter("emissor") ;
-		System.out.println("Emissor="+emissor);
+		//System.out.println("Emissor="+emissor);
 		
 		dtemiss = request.getParameter("dtemissao") ;
-		System.out.println("dt emissao ="+dtemiss);
+		//System.out.println("dt emissao ="+dtemiss);
 		
 		sexo = request.getParameter("sexo") ;
-		System.out.println("sexo ="+dtemiss);
+		//System.out.println("sexo ="+dtemiss);
 		
 		data = request.getParameter("dtnascimento") ;
-		System.out.println("data ="+data);
+		//System.out.println("data ="+data);
 		
 		email = request.getParameter("email") ;
-		System.out.println("email ="+email);
+		//System.out.println("email ="+email);
 		
 		estciv = request.getParameter("estciv") ;
-		System.out.println("estciv ="+estciv);
+		//System.out.println("estciv ="+estciv);
 		
 		conjuge = request.getParameter("conjuge") ;
-		System.out.println("conjuge ="+conjuge);
+		//System.out.println("conjuge ="+conjuge);
 		
 		telefone= request.getParameter("telefone") ;
-		System.out.println("telefone ="+telefone);
+		//System.out.println("telefone ="+telefone);
 		
 		nomepai = request.getParameter("nomepai") ;		
-		System.out.println("nomepai ="+nomepai);
+		//System.out.println("nomepai ="+nomepai);
 		
 		nomemae = request.getParameter("nomemae") ;
-		System.out.println("nomemae ="+nomemae);
+		//System.out.println("nomemae ="+nomemae);
 				
 		nacionalidade = request.getParameter("nacionalidade") ;
-		System.out.println("nacionalidade ="+nacionalidade);
+		//System.out.println("nacionalidade ="+nacionalidade);
 		
 		naturalidade = request.getParameter("naturalidade") ;
-		System.out.println("naturalidade ="+naturalidade);
+		//System.out.println("naturalidade ="+naturalidade);
 		
 		capciv = request.getParameter("capciv") ;
-		System.out.println("capciv ="+capciv);
+		//System.out.println("capciv ="+capciv);
 		
 		ocupacao = request.getParameter("ocupacao") ;
-		System.out.println("ocupacao ="+ocupacao);
+		//System.out.println("ocupacao ="+ocupacao);
 		
 		inicioocupa = request.getParameter("inicioocupa") ;
-		System.out.println("inicioocupa ="+inicioocupa);
+		//System.out.println("inicioocupa ="+inicioocupa);
 		
 		empregador = request.getParameter("empregador") ;
-		System.out.println("empregador ="+empregador);
+		//System.out.println("empregador ="+empregador);
 		
 		renda = Float.parseFloat(request.getParameter("renda") ) ;
 		
-		System.out.println("renda ="+renda);
+		//System.out.println("renda ="+renda);
 		
 		//Para este cadastro, nao é necessario enviar informações de logon
 		//nomeuser = null;
@@ -125,6 +125,7 @@
 		//testa se o cadastro de endereço foi gravado no banco
 		boolean ok1 = edao.cadastrarEnd(e) ;
 		
+		//testa o cadastro do endereco
 		if(ok1){
 			//pega o ultimo idendereco cadastrado
 			int id = edao.getMaxId() ;
@@ -137,15 +138,23 @@
 			boolean ok2 = dao.cadastrarCliente(u) ;
 			
 			if(ok2){
-				%>Cadastro realizado com sucesso<%
+				%>
+					<jsp:forward page="abreconta.jsp">
+						<jsp:param name="msg" value="1"/>
+					</jsp:forward>		
+				<%
 			}else{
-				%>Erro ocorrido durante o cadastro<%
+				%>
+					<jsp:forward page="abreconta.jsp">
+						<jsp:param name="msg" value="2"/>
+					</jsp:forward>		
+				<%
 			}
 			
 		}//if ok1
 		else {
 			%>Erro ao cadastrar endereco<%
-		}
+		}//fim-else
 	
 
 	
