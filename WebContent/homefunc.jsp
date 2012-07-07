@@ -4,7 +4,7 @@
 	//Processamento da msg de erro ao tentar efetuar login
 	String msg = request.getParameter("msg");
 	String msgOut ="";
-	String msgOutSucesso1 ="";
+	String msgOutSucesso ="";
 	if (msg!=null){
 		//Login do usuario
 		if(msg.equals("1")){
@@ -14,7 +14,7 @@
 			msgOut = "Login e/ou senha inválidos!";
 		} else {
 			//session.getAtribute("login");
-			msgOutSucesso1 = "Você efetuou login como "+session.getAttribute("login");
+			msgOutSucesso = "Você efetuou login como "+session.getAttribute("login")+" - Area Restrita";
 		}
 }%>
 <!DOCTYPE HTML>
@@ -55,7 +55,7 @@ body,td,th {
 
           </table>
          <b> <font color="red"><%= msgOut %></font></b>
-         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b>
+         
 		
 		</form>
 		
@@ -77,14 +77,23 @@ body,td,th {
             
 </li>
           <li><a href="sobre.php">Sobre</a></li>
-        </ul></nav></header><div id="site_content">
+        </ul></nav></header>
+        <b><font color="#FFB90F"><%= msgOutSucesso %></font></b>
+         
+        <div id="site_content">
+        
       <div id="sidebar_container">
         <div class="sidebar">
           <h3>Área restrita</h3>
           <div class="sidebar_item">
 
-             <jsp:include page="formEntrarAreaRestrita.jsp" flush="true"/> 
-             
+             <ul>
+<li><a href="listaSolicitacoes.jsp">Novos Clientes</a></li>
+              <li><a href="listaClientes.jsp">Cadastro de cliente</a></li>
+              <li><a href="listaFuncionarios.jsp">Cadastro de Funcionario</a></li>	
+              <li><a href="#">An&aacute;lise</a></li>
+              
+            </ul> 
           </div>
           <div class="sidebar_base"></div>
         </div>

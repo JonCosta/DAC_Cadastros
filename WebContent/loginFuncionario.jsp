@@ -26,7 +26,7 @@
 		//login e senha verificados estão corretos
 		boolean achou = dao.verificarUsuario(u);
 		if(achou==true){
-			pagina= "index.jsp";
+			pagina= "homefunc.jsp";
 			String msgsucess = "3";
 			//registra a sessão
 			HttpSession nsession = request.getSession(true) ;
@@ -42,7 +42,7 @@
 			response.addCookie(cookie);
 			%><jsp:forward page="<%= pagina %>">
 				<jsp:param name="msg" value="<%= msgsucess %>"/>
-			</jsp:forward>	<%
+			</jsp:forward><%
 		} else {
 			pagina= "index.jsp";
 			String erro="2";

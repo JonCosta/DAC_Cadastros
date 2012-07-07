@@ -1,6 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*"%>
+<%@page import="modelo.Usuario"%>
+<%@page import="dao.UsuarioDAO"%>
+<%  
+	//Processamento das possiveis msgs ao tentar efetuar login
+	String msg = request.getParameter("msg");
+	String msgOut ="";
+	String msgOutSucesso1 ="";
+	if (msg!=null){
+		//Login do usuario
+		if(msg.equals("1")){
+			msgOut="Login e/ou senha inválidos!";
+		//login administrador
+		} else if (msg.equals("2")){
+			msgOut = "Login e/ou senha inválidos!";
+		} else {
+			//session.getAtribute("login");
+			msgOutSucesso1 = "Você efetuou login como "+session.getAttribute("login");
+		}
+}%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,9 +38,6 @@ body,td,th {
 </style>
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
-	
-
-
 	<script type="text/javascript" src="js/helpers.js"></script>
 	<script type="text/javascript" src="js/date.js"></script>
 	<script type="text/javascript" src="js/form.js"></script>
@@ -43,7 +58,7 @@ body,td,th {
     <header><div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1><a href="index.html">Banco<span class="logo_colour">TADS</span></a></h1>
+          <h1><a href="index.jsp">Banco<span class="logo_colour">TADS</span></a></h1>
           <h2>2012</h2>
         </div>
         <form method="post" action="#" id="search">
@@ -56,10 +71,12 @@ body,td,th {
 		  <td><input type="submit" value="Ok"></td>
           </tr>
           </table>
-</form>
+         <b> <font color="red"><%= msgOut %></font></b>
+         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b>
+		</form>
       </div>
       <nav><ul class="sf-menu" id="nav">
-<li class="current"><a href="index.html">Home</a></li>
+<li class="current"><a href="index.jsp">Home</a></li>
           <li><a href="abreconta.jsp">Abrir Conta</a></li>
           <li><a href="#">Conta e Servi&ccedil;os</a><ul>
 <li><a href="formSaldo.jsp">Saldo</a></li>
@@ -118,7 +135,7 @@ body,td,th {
       </div>
         </div>
     <footer>
-      <p><a href="index.html">Home</a> | <a href="examples.html">ABRIR CONTA</a> | <a href="page.html">CONTA E SERVI&Ccedil;OS</a> | <a href="another_page.html">EMPR&Eacute;STIMOS</a> | <a href="contact.php">PAGAMENTOS</a></p>
+      <p><a href="index.jsp">Home</a> | <a href="examples.html">ABRIR CONTA</a> | <a href="page.html">CONTA E SERVI&Ccedil;OS</a> | <a href="another_page.html">EMPR&Eacute;STIMOS</a> | <a href="contact.php">PAGAMENTOS</a></p>
       <p>Copyright &copy; BANCO TADS | Jonathan costa/val&eacute;ria pedro</p>
     </footer>
 </div>
@@ -130,3 +147,4 @@ body,td,th {
   </script>
 </body>
 </html>
+
