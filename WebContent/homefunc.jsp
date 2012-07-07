@@ -1,22 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<%  
-	//Processamento da msg de erro ao tentar efetuar login
-	String msg = request.getParameter("msg");
-	String msgOut ="";
-	String msgOutSucesso ="";
-	if (msg!=null){
-		//Login do usuario
-		if(msg.equals("1")){
-			msgOut="Login e/ou senha inválidos!";
-		//login administrador
-		} else if (msg.equals("2")){
-			msgOut = "Login e/ou senha inválidos!";
-		} else {
-			//session.getAtribute("login");
-			msgOutSucesso = "Você efetuou login como "+session.getAttribute("login")+" - Area Restrita";
-		}
-}%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -54,7 +38,7 @@ body,td,th {
           </tr>
 
           </table>
-         <b> <font color="red"><%= msgOut %></font></b>
+          
          
 		
 		</form>
@@ -78,8 +62,8 @@ body,td,th {
 </li>
           <li><a href="sobre.php">Sobre</a></li>
         </ul></nav></header>
-        <b><font color="#FFB90F"><%= msgOutSucesso %></font></b>
-         
+        <% String msgLogon = "Você efetuou login como "+session.getAttribute("login")+" - Area Restrita";%> <a href="logoff.jsp">Sair</a>
+         <b> <font color="#FFB90F"><%= msgLogon %></font></b>
         <div id="site_content">
         
       <div id="sidebar_container">

@@ -55,7 +55,7 @@ body,td,th {
 
           </table>
          <b> <font color="red"><%= msgOut %></font></b>
-         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b>
+         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b><a href="logoff.jsp">Sair</a>
 		
 		</form>
 		
