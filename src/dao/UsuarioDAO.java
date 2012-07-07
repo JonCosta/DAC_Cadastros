@@ -224,7 +224,7 @@ public class UsuarioDAO {
 	
 	public String listarClientes(){
 		
-		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil, idusuario FROM usuario where isfuncionario = false" ;
+		String sql = "SELECT idusuario, nome, datanasc,  ocupacao FROM usuario where isfuncionario = false" ;
 		
 		Statement stmt = null ;
         ResultSet rs = null ;
@@ -236,14 +236,10 @@ public class UsuarioDAO {
             rs = stmt.executeQuery(sql) ;
             
             tabela = "<tr>" +
-			"<th>Nome</th>" +
-			"<th>CPF</th>" +
-			"<th>Tipo de Doc.</th>" +
-			"<th>Núm. de Doc.</th>" +
-			"<th>Telefone</th>" +
-			"<th>Sexo</th>" +
+           	"<th>Cód.</th>" +
+           	"<th>Nome</th>" +
 			"<th>Data de Nasc.</th>" +
-			"<th>Estado Civil</th>" +
+			"<th>Ocupacao</th>" +
 			"<th>Editar</th>" +
 			"<th>Excluir</th>" +
 			"</tr>" ; 
@@ -254,15 +250,11 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(2)+"</th>" +
             		"<th>"+rs.getObject(3)+"</th>" +
             		"<th>"+rs.getObject(4)+"</th>" +
-            		"<th>"+rs.getObject(5)+"</th>" +
-            		"<th>"+rs.getObject(6)+"</th>" +
-            		"<th>"+rs.getObject(7)+"</th>" +
-            		"<th>"+rs.getObject(8)+"</th>"+
             		"<th><form action='formEditarCliente.jsp' method='post'>" +
-            				"<input name='id' type='hidden' value='"+rs.getInt(9)+"'/><input type='submit' value='Editar'/></form>" +
+            				"<input name='id' type='hidden' value='"+rs.getInt(1)+"'/><input type='submit' value='Editar'/></form>" +
             		"</th>" +
             		"<th><form action='excluirUsuario.jsp' method='post' onsubmit='return confirma()';>" +
-            				"<input name='id' type='hidden' value='"+rs.getInt(9)+"'/><input type='submit' value='Excluir'/></form>" +
+            				"<input name='id' type='hidden' value='"+rs.getInt(1)+"'/><input type='submit' value='Excluir'/></form>" +
             		"</th></tr>";
             }
         }catch(SQLException e){
@@ -490,7 +482,7 @@ public class UsuarioDAO {
 	
 	public String listarFuncionarios(){
 		
-		String sql = "SELECT nome, cpf, tipodoc, numdoc, numtelefone, sexo, datanasc, estadocivil, cargo, departamento, idusuario FROM usuario where isfuncionario = true" ;
+		String sql = "SELECT idusuario, nome, datanasc, cargo, renda FROM usuario where isfuncionario = true" ;
 		
 		Statement stmt = null ;
         ResultSet rs = null ;
@@ -508,16 +500,11 @@ public class UsuarioDAO {
             		"<th>"+rs.getObject(3)+"</th>" +
             		"<th>"+rs.getObject(4)+"</th>" +
             		"<th>"+rs.getObject(5)+"</th>" +
-            		"<th>"+rs.getObject(6)+"</th>" +
-            		"<th>"+rs.getObject(7)+"</th>" +
-            		"<th>"+rs.getObject(8)+"</th>"+
-            		"<th>"+rs.getObject(9)+"</th>"+
-            		"<th>"+rs.getObject(10)+"</th>"+
             		"<th><form action='formEditarFuncionario.jsp' method='post'>" +
-    				"<input name='id' type='hidden' value='"+rs.getInt(11)+"'/><input type='submit' value='Editar'/></form>" +
+    				"<input name='id' type='hidden' value='"+rs.getInt(1)+"'/><input type='submit' value='Editar'/></form>" +
     		"</th>" +
     		"<th><form action='excluirUsuario.jsp' method='post' onsubmit='return confirma()';>" +
-    				"<input name='id' type='hidden' value='"+rs.getInt(11)+"'/><input type='submit' value='Excluir'/></form>" +
+    				"<input name='id' type='hidden' value='"+rs.getInt(1)+"'/><input type='submit' value='Excluir'/></form>" +
     		"</th></tr>";
             }
         }catch(SQLException e){

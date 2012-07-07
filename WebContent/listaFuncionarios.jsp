@@ -105,7 +105,7 @@ body,td,th {
       </div>
       
       <div class="content">
-        <h1>Cadastro de FUncionários</h1>
+        <h1>Cadastro de Funcionários</h1>
         <div class="content_item">
           <table>
 			<tr>
@@ -126,34 +126,19 @@ body,td,th {
 		<table border="1">
 		<tr>
 			<th>
+				Cód.
+			</th>
+			<th>
 				Nome
-			</th>
-			<th>
-				CPF
-			</th>
-			<th>
-				Tipo de Doc.
-			</th>
-			<th>
-				Núm. de Doc.
-			</th>
-			<th>
-				Telefone
-			</th>
-			<th>
-				Sexo
 			</th>
 			<th>
 				Data de Nasc.
 			</th>
 			<th>
-				Estado Civil
-			</th>
-			<th>
 				Cargo
 			</th>
 			<th>
-				Departamento
+				Renda
 			</th>
 			<th>
 				Editar
