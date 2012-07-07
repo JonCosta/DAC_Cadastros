@@ -71,8 +71,16 @@ body,td,th {
 		  <td><input type="submit" value="Ok"></td>
           </tr>
           </table>
+
+         
          <b> <font color="red"><%= msgOut %></font></b>
-         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b><a href="logoff.jsp">Sair</a>
+         <% 
+        		String loginsessao = (String)session.getAttribute("login");
+        		if (msgOutSucesso1 != null){
+        			%><b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b><a href="logoff.jsp">Sair</a><% 
+        		}
+        	
+        %>
 		</form>
       </div>
       <nav><ul class="sf-menu" id="nav">

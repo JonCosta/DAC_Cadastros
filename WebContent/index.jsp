@@ -54,8 +54,16 @@ body,td,th {
           </tr>
 
           </table>
-         <b> <font color="red"><%= msgOut %></font></b>
-         <b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b><a href="logoff.jsp">Sair</a>
+          <b> <font color="red"><%= msgOut %></font></b>
+          <% 
+        		String loginsessao = (String)session.getAttribute("login");
+        		if (msgOutSucesso1 != null){
+        			%><b><font color="#FFB90F"><%= msgOutSucesso1 %></font></b><a href="logoff.jsp">Sair</a><% 
+        		}
+        	
+        %>
+         
+         
 		
 		</form>
 		
