@@ -16,6 +16,16 @@ body,td,th {
 	color: #CCCCCC;
 }
 </style>
+
+<script type='text/javascript'>
+	function confirma(){
+				if (confirm('Tem certeza de que deseja autorizar a solicitação?'))
+					document.form.submit;		
+				else
+					return false;
+			}
+	</script>
+
 </head>
 <body>
   <div id="main">

@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.mysql.jdbc.exceptions.* ;
 
 import jdbc.ConnectionFactory;
@@ -68,14 +72,41 @@ public class UsuarioDAO {
             stmt.execute() ;
             stmt.close() ;
             
-            return true ; //Retorna verdadeiro caso a inserção seja bem sucedida
-            
         }catch(SQLException e1){
+        	e1.printStackTrace() ;
         	return false ; //Retorna falso caso haja algum erro na SQL
         }catch(Exception e){
+        	e.printStackTrace() ;
         	return false ; //Retorna erro caso haja algum outro erro
         }
 		
+		
+		 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	     Date date = new Date();
+	     String data = dateFormat.format(date).toString() ;
+		
+		try{
+			
+			sql = "INSERT INTO solicitacao (idcliente, situacao, datasolicitacao) VALUES (?,?,?)" ;
+			
+			PreparedStatement stmt = connection.prepareStatement(sql) ;
+			
+			stmt.setInt(1, u.getIdendereco()) ;
+            stmt.setString(2, "Aberta") ;
+            stmt.setString(3, data) ;
+			
+            stmt.execute() ;
+            stmt.close() ;
+            
+            return true ;
+            
+		 }catch(SQLException e1){
+	       	e1.printStackTrace() ;
+			 return false ; //Retorna falso caso haja algum erro na SQL
+	     }catch(Exception e){
+	    	 e.printStackTrace() ;
+	       	return false ; //Retorna erro caso haja algum outro erro
+	     }
 	}//Fecha cadastrarCliente()
 	
 	
