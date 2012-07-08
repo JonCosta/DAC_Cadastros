@@ -62,14 +62,16 @@ body,td,th {
 </li>
           <li><a href="sobre.php">Sobre</a></li>
         </ul></nav></header>
+
         <% 
         String loginsessao = (String)session.getAttribute("login");
         if (loginsessao	 != null){
-        	loginsessao = "Você efetuou login como "+loginsessao+" - Area Restrita";
+        	loginsessao = "Você efetuou login como "+loginsessao+" - Area Restrita <a href='logoff.jsp'>Sair</a>";
+        	%><b> <font color="#FFB90F"><%= loginsessao %></font></b><%
         }
         	
-        %> <a href="logoff.jsp">Sair</a>
-         <b> <font color="#FFB90F"><%= loginsessao %></font></b>
+        %> 
+         
         <div id="site_content">
         
       <div id="sidebar_container">
