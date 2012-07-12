@@ -48,148 +48,148 @@
 		<p>Lembre-se de preencher todos os campos:</p>
 		<fieldset class="contact">
 			<legend>Dados pessoais</legend>
-			<div>
-				<label for="firstname">Nome</label> <input type="text" id="firstname" name="nome" value='<%= u.getNome() %>' >
-			</div>
-			<div>
-				<label for="cpf">CPF</label> <input type="text" id="cpf" name="cpf" value='<%= u.getCpf() %>'>
-			</div>
+			<p>
+				<span> Nome</span> <input type="text" id="firstname" name="nome" value='<%= u.getNome() %>' >
+			</p>
+			<p>
+				<span>CPF</span> <input type="text" id="cpf" name="cpf" value='<%= u.getCpf() %>'>
+			</p>
 
-			<div>
-				<label for="tipodoc">Tipo documento</label>
+			<p>
+				<span> Tipo documento</span>
 				<select name="tipodoc">
 					<option value="RG">RG</option>
 					<option value="Certidão de Nascimento">Certidão de nascimento</option>
 					<option value="Outro">Outro...</option>
 				</select>
-			</div>
-			<div>
-				<label for="numdoc">N° documento</label><input type="text" id="numodoc" name="numdoc" value='<%= u.getNumdoc() %>'>
-			</div>
-			<div>
-				<label for="emissor">Emissor</label><input type="text" id="emissor" name="emissor" size="7" value='<%= u.getEmissor() %>' >
-			</div>
-			<div>
-				<label for="dtemissao">Data Emissão</label><input type="text" id="dtemissao" name="dtemissao" value='<%= u.getDtEmiss() %>' >
-			</div>
+			</p>
+			<p>
+				<span> N° documento</span><input type="text" id="numodoc" name="numdoc" value='<%= u.getNumdoc() %>'>
+			</p>
+			<p>
+				<span>Emissor</span><input type="text" id="emissor" name="emissor" size="7" value='<%= u.getEmissor() %>' >
+			</p>
+			<p>
+				<span> Data Emissão</span><input type="text" id="dtemissao" name="dtemissao" value='<%= u.getDtEmiss() %>' >
+			</p>
 		
 			<div class="radio">
 				<fieldset>
 					<legend><span>Sexo</span></legend>
-					<div>
-						<input type="radio" id="male" name="sexo" value="Masculino"> <label for="male">Masculino</label>
-					</div>
-					<div>
-						<input type="radio" id="female" name="sexo" value="Feminino"> <label for="female">Feminino</label>
-					</div>
+					<p>
+						<input type="radio" id="male" name="sexo" value="Masculino"> <span>Masculino</span>
+					</p>
+					<p>
+						<input type="radio" id="female" name="sexo" value="Feminino"> <span>Feminino</span>
+					</p>
 				</fieldset>
-			</div>
-			<div>
-				<label for="data">Data de Nascimento</label><input type="text" id="dtnascimento" name="dtnascimento" value='<%= u.getDataNasc() %>'>
-			</div>
-			<div>
-				<label for="email">Email</label> <input type="text" id="email" name="email" class="email" value='<%= u.getEmail() %>'>
-			</div>
-			<div>
-				<label for="estciv">Estado Civil</label> 
+			</p>
+			<p>
+				<span>Data de Nascimento</span><input type="text" id="dtnascimento" name="dtnascimento" value='<%= u.getDataNasc() %>'>
+			</p>
+			<p>
+				<span> Email</span> <input type="text" id="email" name="email" class="email" value='<%= u.getEmail() %>'>
+			</p>
+			<p>
+				<span>Estado Civil</span> 
 				<select name="estciv">
 					<option value="Solteiro">Solteiro</option>
 					<option value="Casado">Casado</option>
 					<option value="Divorciado">Divorciado</option>
 					<option value="Viúvo">Viúvo</option>
 				</select>
-			</div>
-			<div>
-				<label for="conjuge">Conjuge</label> <input type="text" name="conjuge" value='<%= u.getConjuge() %>'/>
-			</div>
-			<div>	
-				<label for="telefone">Telefone</label><input type="text" name="telefone" value='<%= u.getNumTelefone() %>'/>
-			</div>
-			<div>	
-				<label for="nacionalidade">Nacionalidade</label><input type="text" name="nacionalidade" value='<%= u.getNacionalidade() %>'/>
-			</div>
-			<div>	
-				<label for="naturalidade">Naturalidade</label><input type="text" name="naturalidade" value='<%= u.getNaturalidade() %>'/>
-			</div>	
-			<div>	
-				<label for="capciv">Capacidade Civil</label>
+			</p>
+			<p>
+				<span>Conjuge</span> <input type="text" name="conjuge" value='<%= u.getConjuge() %>'/>
+			</p>
+			<p>	
+				<span>Telefone</span><input type="text" name="telefone" value='<%= u.getNumTelefone() %>'/>
+			</p>
+			<p>	
+				<span>Nacionalidade</span><input type="text" name="nacionalidade" value='<%= u.getNacionalidade() %>'/>
+			</p>
+			<p>	
+				<span>Naturalidade</span><input type="text" name="naturalidade" value='<%= u.getNaturalidade() %>'/>
+			</p>	
+			<p>	
+				<span>Capacidade Civil</span>
 				<select name="capciv">
 					<option value="Maior">Maior</option>
 					<option value="Menor">Menor</option>
 					<option value="Nec. Especiais">Nec. Especiais</option>
 					
 				</select>
-			</div>
-			<div>	
-				<label for="nomepai">Nome do pai</label><input type="text" name="nomepai" value='<%= u.getNomepai() %>'/>
-			</div>
-			<div>	
-				<label for="nomemae">Nome da mãe</label><input type="text" name="nomemae" value='<%= u.getNomemae() %>'/>
-			</div>	
+			</p>
+			<p>	
+				<span>Nome do pai</span><input type="text" name="nomepai" value='<%= u.getNomepai() %>'/>
+			</p>
+			<p>	
+				<span>Nome da mãe</span><input type="text" name="nomemae" value='<%= u.getNomemae() %>'/>
+			</p>	
 		</fieldset>
 		<fieldset class="login">
 			<legend>Dados de Endereço</legend>
-			<div>
-				<label for="cep">CEP</label> <input type="text" id="cep" name="cep" value='<%= e.getCep() %>'>
-			</div>
-			<div>
-				<label for="estado">Estado</label>
+			<p>
+				<span>CEP</span> <input type="text" id="cep" name="cep" value='<%= e.getCep() %>'>
+			</p>
+			<p>
+				<span>Estado</span>
 				<select id="estado" name="estado"></select>
-			</div>
-			<div><label for="estado"><b>Atual:</b> <%= e.getSiglauf() %></label></div>
-			<div>	
-				<label for="estado">Cidade</label>
+			</p>
+			<p><span><b>Atual:</b> <%= e.getSiglauf() %></span></p>
+			<p>	
+				<span>Cidade</span>
 				<select id="cidade" name="cidade"></select>
-			</div>
-			<div><label for="estado"><b>Atual:</b> <%= e.getCidade() %></label></div>
-			<div>
-				<label for="bairro">Bairro</label> <input type="text" id="bairro" name="bairro" value='<%= e.getBairro() %>'>
-			</div>
-			<div>
-				<label for="complemento">Complemento</label> <input type="text" id="complemento" name="complemento" value='<%= e.getComplemento() %>'>
-			</div>
-			<div>
-				<label for="logradouro">Logradouro</label> <input type="text" id="logradouro" name="logradouro" value='<%= e.getLogradouro() %>'>
-			</div>
-			<div>
-				<label for="tipores">Tipo de Residência</label>
+			</p>
+			<p><span><b>Atual:</b> <%= e.getCidade() %></span></p>
+			<p>
+				<span>Bairro</span> <input type="text" id="bairro" name="bairro" value='<%= e.getBairro() %>'>
+			</p>
+			<p>
+				<span>Complemento</span> <input type="text" id="complemento" name="complemento" value='<%= e.getComplemento() %>'>
+			</p>
+			<p>
+				<span>Logradouro</span> <input type="text" id="logradouro" name="logradouro" value='<%= e.getLogradouro() %>'>
+			</p>
+			<p>
+				<span>Tipo de Residência</span>
 				<select name="tipores">
 					<option value="Residência">Residência</option>
 					<option value="Apartamento">Apartamento</option>
 					<option value="Outro">Outro...</option>
 				</select>
-			</div>
-			<div>
-				<label for="tempores">Tempo de Residência</label> <input type="text" id="tempores" name="tempores" value='<%= e.getTemporesidencia() %>'>
-			</div>
+			</p>
+			<p>
+				<span>Tempo de Residência</span> <input type="text" id="tempores" name="tempores" value='<%= e.getTemporesidencia() %>'>
+			</p>
 		</fieldset>
 		<fieldset>		
 			<legend>Dados profissionais</legend>
-			<div>	
-				<label for="ocupacao">Ocupação</label><input type="text" name="ocupacao" size="30" value='<%= u.getOcupacao() %>'/>
-			</div>
-			<div>
-				<label for="inicioocupa">Início da Ocupação</label><input type="text" name="inicioocupa" size="7" value='<%= u.getInicioocupacao() %>'/>
-			</div>
-				<label for="empregador">Empregador</label><input type="text" name="empregador" size="30" value='<%= u.getEmpregador() %>'/>
-			<div>
-				<label for="renda">Renda Mensal</label><input type="text" name="renda" value='<%= u.getRenda() %>'/>
-			</div>
+			<p>	
+				<span>Ocupação</span><input type="text" name="ocupacao" size="30" value='<%= u.getOcupacao() %>'/>
+			</p>
+			<p>
+				<span>Início da Ocupação</span><input type="text" name="inicioocupa" size="7" value='<%= u.getInicioocupacao() %>'/>
+			</p>
+				<span>Empregador</span><input type="text" name="empregador" size="30" value='<%= u.getEmpregador() %>'/>
+			<p>
+				<span>Renda Mensal</span><input type="text" name="renda" value='<%= u.getRenda() %>'/>
+			</p>
 		</fieldset>
 		<fieldset class="login">
 			<legend>Dados de logon</legend>
-			<div>
-				<label for="username">Nome de usuário</label> <input type="text" id="username" name="username" value='<%= u.getNomeUsuario() %>' >
-			</div>
-			<div>
-				<label for="password">Senha</label> <input type="password" id="password" name="senha" value='<%= u.getSenhaUsuario() %>'>
-			</div>
-			<div>
-				<label for="password2">Redigite a senha</label> <input type="password" id="senha2" name="senha2" value='<%= u.getSenhaUsuario() %>'>
-			</div>
+			<p>
+				<span>Nome de usuário</span> <input type="text" id="username" name="username" value='<%= u.getNomeUsuario() %>' >
+			</p>
+			<p>
+				<span>Senha</span> <input type="password" id="password" name="senha" value='<%= u.getSenhaUsuario() %>'>
+			</p>
+			<p>
+				<span>Redigite a senha</span> <input type="password" id="senha2" name="senha2" value='<%= u.getSenhaUsuario() %>'>
+			</p>
 		</fieldset>
 		<input type="hidden" name="idend" value= '<%= i %>'/>
-		<div><input type="submit" value="Salvar"/></div>
+		<p><input type="submit" value="Salvar"/></p>
 	</form>
 	
 	

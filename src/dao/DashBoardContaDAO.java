@@ -88,15 +88,13 @@ private Connection connection = null ;
 	
 	//função transferencia entre contas / entrada = idconta debito, valor transferencia, numero conta credito ; saida = boolean (transferncia com sucesso)
 	public boolean transfere(int idcontadebito, String numcontacredito, float valorcredito) throws SQLException{
-					boolean achou = false;
+					//boolean achou = false;
 					//Atualiza conta debito	
 					String sql1="update conta set saldo = saldo - "+valorcredito+" where idcc = "+idcontadebito+"";
 					
 					//Atualiza conta credito	
 					String sql2="update conta set saldo = saldo + "+valorcredito+" where numero = "+numcontacredito+"";
 					
-					//CONTINUAR DAQUI
-					Conta conta = null;
 						
 				    Statement stmt = null;
 				    try{
@@ -111,41 +109,24 @@ private Connection connection = null ;
 				        
 				      //solicitação da execução da consulta sql
 				      ResultSet rs = null ;
+				      ResultSet rs1 = null ;
 				      try{
-				          rs = stmt.executeQuery(sql);
+				          rs = stmt.executeQuery(sql1);
+				          rs1 = stmt.executeQuery(sql2);
+				          return true; 
 				      }
 				      catch(MySQLSyntaxErrorException e){
 				          System.out.println("ERRO: sintaxe do SQL.");
 				          System.out.println( e.getMessage() ) ;
+				          return false;
 				      }
 				      catch(SQLException e){
 				          System.out.println("ERRO: execução do SELECT em Usuario");
 				          System.out.println( e.getMessage() ) ;
+				          return false;
 				      }
-
-
-				        // utilização do resultado
-				        try{
-				       	 while(rs.next()){
-				       		 	int idcc = rs.getInt("idcc");
-				       		 	float saldo = rs.getFloat("saldo") ;
-								float limite = rs.getFloat("limite") ;
-								
-								conta = new Conta (idcc,saldo,limite);
-								return achou;//!!!!!!!!!!!!!!!! mudar tudo pra transefrencia
-									//return achou ;
-								}//Fecha if
-							      
-				        }
-				        catch(SQLException e){
-				       	 		System.out.println("ERRO: obtenção de dados do ResultSet");
-				       	 		System.out.println( e.getMessage() ) ;
-				        }
-				        connection.close();
-				        rs.close();
-				        stmt.close();
 				        
-				        return achou;   
+				          
 					
 					}//Fecha buscarConta
 	
